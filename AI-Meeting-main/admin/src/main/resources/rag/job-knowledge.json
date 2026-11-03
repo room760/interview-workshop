@@ -1,0 +1,58 @@
+[
+  {
+    "documentId": "redis-cache",
+    "title": "Redis 缓存设计",
+    "source": "java-backend-job-knowledge",
+    "tag": "Redis",
+    "content": "# Redis 缓存设计\n\n缓存穿透指请求不存在的数据，每次都落到数据库。可以缓存空值并设置短 TTL，也可以使用布隆过滤器拦截明显不存在的键；要注意布隆过滤器有误判但无漏判。缓存击穿指热点 Key 过期时并发请求一起回源，可用互斥锁、逻辑过期或提前刷新。缓存雪崩指大量 Key 同时失效，可以在 TTL 上加入随机抖动，并进行限流和降级。\n\nCache Aside 模式由应用先查缓存，未命中再查数据库并回填。更新时通常先写数据库，再删除缓存；延迟双删不能保证绝对一致。热点数据需要监控命中率和回源流量。Redis 分布式锁可以使用 SET key value NX PX 获取，并用 Lua 脚本比较持有者标识后释放，避免误删别人的锁。锁过期和业务执行时间要协调，跨服务强一致仍需更明确的业务协议。\n\nRedis 的持久化包括 RDB 快照和 AOF 日志。RDB 适合快速恢复但有数据窗口，AOF 可以降低丢失窗口但会带来写入和重写成本。高可用通常涉及主从复制、Sentinel 或 Cluster；缓存场景也应评估故障时数据库是否能承受回源峰值。"
+  },
+  {
+    "documentId": "jvm-gc",
+    "title": "JVM 与垃圾回收",
+    "source": "java-backend-job-knowledge",
+    "tag": "JVM G1",
+    "content": "# JVM G1 与内存问题\n\nJVM 堆主要存放对象实例，年轻代和老年代承担不同生命周期的对象。G1 将堆划分为 Region，以暂停时间目标驱动回收；它会选择收益较高的 Region 做混合回收。G1 并不保证每次停顿都严格小于目标值。排查 GC 先看吞吐量、停顿分布、分配速率和堆占用，再结合 GC 日志区分频繁 Young GC、Mixed GC 和 Full GC。\n\n对象频繁分配可能导致年轻代回收压力，长寿命对象或缓存无界增长可能推高老年代占用。发生 OutOfMemoryError 时应保留堆转储并分析支配树，不能仅靠调大堆掩盖内存泄漏。JVM 类加载遵循双亲委派的一般规则，但应用服务器和插件框架可能有自定义加载器。"
+  },
+  {
+    "documentId": "mysql-index",
+    "title": "MySQL 索引与事务",
+    "source": "java-backend-job-knowledge",
+    "tag": "MySQL",
+    "content": "# MySQL 索引与事务\n\nInnoDB 聚簇索引的叶子节点存储整行数据，二级索引叶子节点保存主键值。联合索引遵循最左前缀原则，范围条件之后的列是否继续参与索引过滤要结合执行计划分析。覆盖索引减少回表，但也增加写入维护成本。慢 SQL 需要结合 EXPLAIN、实际行数和数据分布诊断，不能只看是否出现索引名称。\n\n事务的 ACID 包括原子性、一致性、隔离性和持久性。MVCC 通过版本链与 ReadView 支持一致性读。可重复读下普通快照读与当前读的可见性不同。间隙锁和 Next-Key Lock 用于处理并发范围修改，但具体锁范围取决于索引和执行计划。死锁出现时应缩短事务、统一访问顺序并保留日志分析。"
+  },
+  {
+    "documentId": "kafka-reliability",
+    "title": "Kafka 消息可靠性",
+    "source": "java-backend-job-knowledge",
+    "tag": "Kafka",
+    "content": "# Kafka 消息可靠性\n\n生产者设置 acks=all、合理重试和幂等生产者可降低消息丢失与重复风险。Broker 的副本、ISR 和 min.insync.replicas 共同影响写入可靠性。消费者应在业务处理成功后提交 offset；如果提交前进程退出，消息可能重放，因此业务仍需幂等。数据库写入与 offset 提交之间无法通过普通本地事务自动做到端到端原子。\n\n消息顺序通常只在同一分区内保证，具有顺序要求的业务键应路由到同一分区。消费者积压时检查处理耗时、分区数、并发度和下游容量。死信队列适合隔离多次失败消息，但需要监控和人工或自动重试流程。Exactly Once 语义有适用边界，不能等同于所有外部数据库操作只执行一次。"
+  },
+  {
+    "documentId": "spring-boot",
+    "title": "Spring Boot 自动配置",
+    "source": "java-backend-job-knowledge",
+    "tag": "Spring Boot",
+    "content": "Spring Boot 自动配置根据 classpath 中的依赖和条件注解装配 Bean。@ConditionalOnClass、@ConditionalOnMissingBean 等条件让默认配置可被覆盖。排查 Bean 冲突或未生效时可查看条件评估报告，注意组件扫描范围、配置属性绑定和 Profile。事务注解通过代理生效，同类内部调用可能绕过代理。"
+  },
+  {
+    "documentId": "spring-cloud",
+    "title": "Spring Cloud 服务治理",
+    "source": "java-backend-job-knowledge",
+    "tag": "Spring Cloud",
+    "content": "Spring Cloud 微服务治理涉及服务发现、配置管理、负载均衡、网关和容错。服务调用超时、重试与熔断需要一起设计；对非幂等写入盲目重试可能造成重复提交。配置中心改变配置后应明确刷新边界。链路追踪可以定位跨服务延迟，但日志必须携带可关联的请求标识。"
+  },
+  {
+    "documentId": "java-concurrency",
+    "title": "Java 并发与 CAS",
+    "source": "java-backend-job-knowledge",
+    "tag": "CAS",
+    "content": "CAS 比较并交换通过硬件原子指令支持无锁更新，失败线程可以重试。高争用下自旋会耗费 CPU，ABA 问题可借助版本号处理。volatile 保证可见性与一定的有序性，但复合操作仍需同步。线程池要明确核心线程数、队列容量、拒绝策略与任务耗时，避免无界队列隐藏背压。CompletableFuture 需要显式处理异常和执行器。"
+  },
+  {
+    "documentId": "distributed-lock",
+    "title": "分布式锁与幂等",
+    "source": "java-backend-job-knowledge",
+    "tag": "分布式锁",
+    "content": "分布式锁用于协调多个实例对同一业务资源的并发操作。Redis 锁要使用唯一持有者标识、原子获取和原子校验释放，并设置租约和超时边界。锁无法替代数据库唯一约束或业务幂等键。任务可能在锁过期后继续执行，若对外部资源写入有严格顺序要求，可采用 fencing token 让旧持有者的写入失效。"
+  }
+]

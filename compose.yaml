@@ -1,0 +1,26 @@
+name: ai-meeting-main
+
+include:
+  - path: ./AI-Meeting-main/docker-compose.yml
+    env_file: ./config/.env
+
+services:
+  frontend:
+    image: interview-workshop-frontend:latest
+    build:
+      context: ./AI-Meeting-Frontend-main
+      dockerfile: Dockerfile
+      args:
+        NODE_IMAGE: ${NODE_IMAGE:-node:20-alpine}
+        NGINX_IMAGE: ${NGINX_IMAGE:-nginx:1.27-alpine}
+    container_name: interview-workshop-frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1/healthz"]
+      interval: 20s
+      timeout: 5s
+      retries: 5

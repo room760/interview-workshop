@@ -1,0 +1,17 @@
+server:
+  port: 8003
+
+spring:
+  ai:
+    mcp:
+      server:
+        enabled: true
+        name: interview-workshop-job-research
+        version: 1.0.0
+        type: SYNC
+        sse-message-endpoint: /mcp/messages
+        capabilities:
+          tool: true
+          resource: false
+          prompt: false
+          completion: false

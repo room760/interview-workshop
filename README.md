@@ -41,4 +41,3 @@ docker compose -f compose.yaml down
 | `compose.yaml`、`start.cmd`、`start.ps1` | 整体启动入口 |
 
 本机产生的 `tmp/`、`.idea/`、`node_modules/`、`dist/`、`target/` 等目录已由 [.gitignore](.gitignore) 排除。后端开发细节见 [后端 README](AI-Meeting-main/README.md)。
-

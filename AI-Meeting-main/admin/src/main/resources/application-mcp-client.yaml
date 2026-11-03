@@ -1,0 +1,20 @@
+spring:
+  ai:
+    mcp:
+      client:
+        enabled: true
+        name: interview-workshop-job-preparation-client
+        version: 1.0.0
+        type: SYNC
+        request-timeout: 30s
+
+        # 本课通过 Java 代码直接调用 MCP 工具，
+        # 不需要再自动把 MCP 工具注册给另一套模型调用框架。
+        toolcallback:
+          enabled: false
+
+        sse:
+          connections:
+            job-research-server:
+              url: ${JOB_RESEARCH_MCP_URL:http://localhost:8003}
+              sse-endpoint: /sse

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqr.interviewworkshop.interview.dao.mapper.AiCallRecordMapper">
+    <select id="countSuccess" resultType="long">
+        SELECT COUNT(*) FROM ai_call_record WHERE status='SUCCESS'
+    </select>
+
+    <select id="countFailed" resultType="long">
+        SELECT COUNT(*) FROM ai_call_record WHERE status='FAILED'
+    </select>
+    <select id="sumTokens" resultType="long">
+        SELECT IFNULL(SUM(total_tokens),0) FROM ai_call_record
+    </select>
+    <select id="avgLatency" resultType="long">
+        SELECT IFNULL(AVG(latency),0) FROM ai_call_record
+    </select>
+    <select id="statisticByAgent" resultType="com.cqr.interviewworkshop.interview.application.observability.dto.AgentStatisticDTO">
+        SELECT agent_name AS agentName,
+            COUNT(*) AS callCount,
+            SUM(
+                    CASE
+                        WHEN status='SUCCESS'
+                            THEN 1
+                        ELSE 0
+                        END
+                ) AS successCount,
+            SUM(
+                    CASE
+                        WHEN status='FAILED'
+                            THEN 1
+                        ELSE 0
+                        END
+                ) AS failedCount,
+            AVG(latency) AS avgLatency
+        FROM ai_call_record
+        GROUP BY agent_name
+    </select>
+</mapper>

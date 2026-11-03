@@ -1,0 +1,142 @@
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:-mysql:8.4}
+    container_name: interview-workshop-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-123456}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-interview_workshop}
+    ports:
+      - "127.0.0.1:3307:3306"
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./admin/src/main/resources/sql/table.sql:/docker-entrypoint-initdb.d/01-table.sql:ro
+      - ./admin/src/main/resources/sql/admin_permission.sql:/docker-entrypoint-initdb.d/02-admin_permission.sql:ro
+      - ./admin/src/main/resources/sql/agent_properties.sql:/docker-entrypoint-initdb.d/03-agent_properties.sql:ro
+      - ./admin/src/main/resources/sql/ai_properties.sql:/docker-entrypoint-initdb.d/04-ai_properties.sql:ro
+      - ./admin/src/main/resources/sql/t_user.sql:/docker-entrypoint-initdb.d/05-t_user.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p${MYSQL_PASSWORD:-123456}"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+  mongo:
+    image: ${MONGO_IMAGE:-mongo:7.0}
+    container_name: interview-workshop-mongo
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+
+  redis:
+    image: ${REDIS_IMAGE:-redis:7.2}
+    container_name: interview-workshop-redis
+    ports:
+      - "127.0.0.1:6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  pgvector:
+    image: ${PGVECTOR_IMAGE:-pgvector/pgvector:pg16}
+    container_name: interview-workshop-pgvector
+    environment:
+      POSTGRES_DB: ${PGVECTOR_DATABASE:-aimeeting_vector}
+      POSTGRES_USER: ${PGVECTOR_USERNAME:-aimeeting}
+      POSTGRES_PASSWORD: ${PGVECTOR_PASSWORD:-local_dev_only_change_me}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pgvector-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${PGVECTOR_USERNAME:-aimeeting} -d ${PGVECTOR_DATABASE:-aimeeting_vector}
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    image: ${BACKEND_IMAGE:-interview-workshop-backend:latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILDER_IMAGE: ${BUILDER_IMAGE:-maven:3.9.11-eclipse-temurin-17}
+        RUNTIME_IMAGE: ${RUNTIME_IMAGE:-eclipse-temurin:17-jre-jammy}
+    container_name: interview-workshop-backend
+    depends_on:
+      mysql:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      pgvector:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-interview_workshop}
+      MYSQL_USERNAME: ${MYSQL_USERNAME:-root}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-123456}
+      MONGODB_HOST: mongo
+      MONGODB_PORT: 27017
+      MONGODB_DATABASE: ${MONGODB_DATABASE:-interview_workshop_agent}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PGVECTOR_JDBC_URL: jdbc:postgresql://pgvector:5432/${PGVECTOR_DATABASE:-aimeeting_vector}
+      PGVECTOR_USERNAME: ${PGVECTOR_USERNAME:-aimeeting}
+      PGVECTOR_PASSWORD: ${PGVECTOR_PASSWORD:-local_dev_only_change_me}
+      PGVECTOR_DIMENSIONS: ${PGVECTOR_DIMENSIONS:-1536}
+      PGVECTOR_TABLE_NAME: ${PGVECTOR_TABLE_NAME:-job_knowledge_vector}
+      RAG_LUCENE_PATH: ${RAG_LUCENE_PATH:-/app/data/rag-lucene}
+      XUNFEI_EMBEDDING_API_KEY: ${XUNFEI_EMBEDDING_API_KEY:-not-configured}
+      XUNFEI_EMBEDDING_BASE_URL: ${XUNFEI_EMBEDDING_BASE_URL:-https://maas-api.cn-huabei-1.xf-yun.com}
+      XUNFEI_EMBEDDING_PATH: ${XUNFEI_EMBEDDING_PATH:-/v2/embeddings}
+      XUNFEI_EMBEDDING_MODEL_ID: ${XUNFEI_EMBEDDING_MODEL_ID:-not-configured}
+      XUNFEI_APP_ID: ${XUNFEI_APP_ID:-}
+      XUNFEI_API_KEY: ${XUNFEI_API_KEY:-}
+      XUNFEI_API_SECRET: ${XUNFEI_API_SECRET:-}
+      XUNFEI_RTA_API_KEY: ${XUNFEI_RTA_API_KEY:-}
+      REQUIRE_XUNFEI_SECRETS: ${REQUIRE_XUNFEI_SECRETS:-false}
+      XUNFEI_WANSOU_API_PASSWORD: ${XUNFEI_WANSOU_API_PASSWORD:-}
+      JOB_MATCH_TOOL_CALLING_AI_ID: ${JOB_MATCH_TOOL_CALLING_AI_ID:-4}
+      INTERVIEW_WORKSHOP_AGENT_INTERVIEW_JOB_MATCH: ${INTERVIEW_WORKSHOP_AGENT_INTERVIEW_JOB_MATCH:-企业匹配度评分官}
+      INTERVIEW_WORKSHOP_STORAGE_BASE_DIR: /app/data
+      INTERVIEW_WORKSHOP_MULTIPART_TEMP_DIR: /app/data/temp/upload
+      INTERVIEW_WORKSHOP_AUDIO_TEMP_DIR: /app/data/temp/audio
+      INTERVIEW_WORKSHOP_LOG_DIR: /app/logs
+    ports:
+      - "127.0.0.1:8002:8002"
+    volumes:
+      - backend-data:/app/data
+      - backend-logs:/app/logs
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8002/actuator/health || exit 1"]
+      interval: 20s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+volumes:
+  mysql-data:
+  mongo-data:
+  redis-data:
+  pgvector-data:
+  backend-data:
+  backend-logs:

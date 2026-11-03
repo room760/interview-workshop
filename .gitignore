@@ -1,0 +1,26 @@
+# Local copies, editor settings and generated files
+tmp/
+.idea/
+**/.idea/
+**/.vscode/
+**/node_modules/
+**/dist/
+**/target/
+**/coverage/
+**/logs/
+**/*.log
+**/*.tmp
+**/*.temp
+
+# Local credentials and private configuration
+**/.env
+**/.env.*
+!**/.env.example
+**/.local-ai-config.sql
+**/.local-secrets/
+config/ai-credentials.sql
+config/private-archive/
+
+# Operating system files
+.DS_Store
+Thumbs.db
