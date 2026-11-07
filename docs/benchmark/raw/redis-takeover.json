@@ -1,0 +1,8 @@
+{
+  "scenario" : "missed_heartbeat_takeover_fencing",
+  "oldToken" : 1,
+  "newToken" : 2,
+  "oldOwnerHeartbeatAccepted" : false,
+  "oldOwnerWriteAccepted" : false,
+  "newOwnerResult" : "fresh"
+}

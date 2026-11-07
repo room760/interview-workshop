@@ -27,4 +27,5 @@ public interface InterviewSessionService {
     void finishSession(String sessionId, Long userId);
 
     void abandonActiveSessions(Long userId);
+
 }

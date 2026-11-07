@@ -2,10 +2,13 @@ package com.cqr.interviewworkshop.interview.service.impl;
 
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.update.Update;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cqr.interviewworkshop.agent.application.BusinessAgentResolver;
 import com.cqr.interviewworkshop.agent.application.BusinessAgentScene;
+import com.cqr.interviewworkshop.common.convention.exception.ClientException;
+import com.cqr.interviewworkshop.common.enums.InterviewErrorCodeEnum;
 import com.cqr.interviewworkshop.interview.api.io.req.InterviewConversationPageReqDTO;
 import com.cqr.interviewworkshop.interview.api.io.resp.InterviewConversationRespDTO;
 import com.cqr.interviewworkshop.interview.api.io.resp.InterviewSessionCreateRespDTO;
@@ -15,16 +18,20 @@ import com.cqr.interviewworkshop.interview.dao.entity.InterviewSession;
 import com.cqr.interviewworkshop.interview.dao.repository.InterviewSessionRepository;
 import com.cqr.interviewworkshop.interview.service.InterviewSessionService;
 import com.cqr.interviewworkshop.interview.service.model.InterviewSessionStatus;
+import com.jayway.jsonpath.Criteria;
+import com.mongodb.client.result.UpdateResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -48,6 +55,7 @@ public class InterviewSessionServiceImpl implements InterviewSessionService {
                 businessAgentResolver.resolveRequired(BusinessAgentScene.INTERVIEW_QUESTION_ASKING).getId());
         session.setDelFlag(0);
         interviewSessionRepository.save(session);
+
         InterviewSessionRuntimeSnapshotService runtimeSnapshotService = runtimeSnapshotServiceProvider.getIfAvailable();
         if (runtimeSnapshotService != null) {
             runtimeSnapshotService.initializeDraftSnapshot(session);
@@ -77,54 +85,96 @@ public class InterviewSessionServiceImpl implements InterviewSessionService {
 
     @Override
     public void markResumeUploading(String sessionId, Long userId) {
-        InterviewSession session = requireOwnedSession(sessionId, userId);
-        session.setStatus(InterviewSessionStatus.RESUME_UPLOADING.name());
-        interviewSessionRepository.save(session);
+        requireOwnedSession(sessionId, userId);
+
+        boolean success = interviewSessionRepository.tryMarkResumeUploading(sessionId,userId);
+        if(!success){
+            throw new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_INVALID_STATE);
+        }
     }
 
     @Override
     public void markReady(String sessionId, Long userId, String resumeFileUrl, String interviewType) {
-        InterviewSession session = requireOwnedSession(sessionId, userId);
-        session.setStatus(InterviewSessionStatus.READY.name());
-        session.setResumeFileUrl(resumeFileUrl);
-        session.setInterviewType(interviewType);
-        interviewSessionRepository.save(session);
+        requireOwnedSession(sessionId, userId);
+
+        boolean success = interviewSessionRepository.markReadyIfUploading(
+                        sessionId,
+                        userId,
+                        resumeFileUrl,
+                        interviewType
+                );
+        if (!success) {
+            throw new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_INVALID_STATE);
+        }
     }
 
     @Override
     public void markDraft(String sessionId, Long userId) {
-        InterviewSession session = requireOwnedSession(sessionId, userId);
-        session.setStatus(InterviewSessionStatus.DRAFT.name());
-        interviewSessionRepository.save(session);
+        requireOwnedSession(sessionId, userId);
+        interviewSessionRepository.markDraftIfUploading(sessionId, userId);
     }
 
     @Override
     public void markInProgressIfReady(String sessionId, Long userId) {
         InterviewSession session = requireOwnedSession(sessionId, userId);
-        if (!InterviewSessionStatus.READY.name().equals(session.getStatus())) {
+        if (InterviewSessionStatus.IN_PROGRESS.name().equals(session.getStatus())) {
             return;
         }
-        session.setStatus(InterviewSessionStatus.IN_PROGRESS.name());
-        if (session.getStartTime() == null) {
-            session.setStartTime(new Date());
+        if (!InterviewSessionStatus.READY.name().equals(session.getStatus())) {
+            throw new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_INVALID_STATE);
         }
-        interviewSessionRepository.save(session);
+
+        Date startTime = session.getStartTime() == null ? new Date() : session.getStartTime();
+
+        boolean success = interviewSessionRepository.markInProgressIfReady(sessionId, userId, startTime);
+        if (!success) {
+            InterviewSession latest = requireOwnedSession(sessionId, userId);
+            if (InterviewSessionStatus.IN_PROGRESS.name().equals(latest.getStatus())) {
+                return;
+            }
+            throw new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_INVALID_STATE);
+        }
     }
 
     @Override
     public void finishSession(String sessionId, Long userId) {
         InterviewSession session = requireOwnedSession(sessionId, userId);
-        session.setStatus(InterviewSessionStatus.FINISHED.name());
-        if (session.getStartTime() == null) {
-            session.setStartTime(session.getCreateTime() == null ? new Date() : session.getCreateTime());
+
+        if (InterviewSessionStatus.FINISHED.name()
+                .equals(session.getStatus())) {
+            return;
         }
-        session.setEndTime(new Date());
-        interviewSessionRepository.save(session);
+
+        Date now = new Date();
+        Date startTime = session.getStartTime() == null
+                ? (session.getCreateTime() == null ? now : session.getCreateTime())
+                : session.getStartTime();
+
+        boolean success = interviewSessionRepository.finishIfCurrentStatus(
+                        sessionId,
+                        userId,
+                        session.getStatus(),
+                        startTime,
+                        now
+                );
+
+        if (!success) {
+            InterviewSession latest = requireOwnedSession(sessionId, userId);
+
+            if (InterviewSessionStatus.FINISHED.name().equals(latest.getStatus())) {
+                return;
+            }
+
+            throw new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_INVALID_STATE
+            );
+        }
     }
 
     @Override
     public void abandonActiveSessions(Long userId) {
-        List<InterviewSession> sessions = interviewSessionRepository.findByUserIdAndStatusInAndDelFlagOrderByUpdateTimeDesc(
+        Date now = new Date();
+
+        interviewSessionRepository.abandonActiveSessions(
                 userId,
                 List.of(
                         InterviewSessionStatus.DRAFT.name(),
@@ -132,16 +182,8 @@ public class InterviewSessionServiceImpl implements InterviewSessionService {
                         InterviewSessionStatus.READY.name(),
                         InterviewSessionStatus.IN_PROGRESS.name()
                 ),
-                0
+                now
         );
-        if (sessions == null || sessions.isEmpty()) {
-            return;
-        }
-        for (InterviewSession session : sessions) {
-            session.setStatus(InterviewSessionStatus.ABANDONED.name());
-            session.setEndTime(new Date());
-        }
-        interviewSessionRepository.saveAll(sessions);
     }
 
     private org.springframework.data.domain.Page<InterviewSession> queryPage(

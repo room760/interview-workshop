@@ -57,13 +57,7 @@ public class InterviewAgentOrchestrationService implements InterviewWorkflowServ
         return getCurrentQuestion(sessionId);
     }
 
-    /**
-     * Resolve current question by sessionId without moving the flow cursor.
-     * Priority:
-     * 1) flow state in Redis
-     * 2) latest turn log recovery
-     * 3) fallback to first question
-     */
+
     public InterviewAnswerRespDTO getCurrentQuestion(String sessionId) {
         InterviewAnswerRespDTO response = InterviewAnswerRespDTO.init();
 
@@ -72,21 +66,22 @@ public class InterviewAgentOrchestrationService implements InterviewWorkflowServ
         }
 
         try {
+            // 检查 redis 中 运行态 是否可用
             runtimeRehydrateService.ensureRuntime(
                     sessionId,
                     InterviewRuntimeLoadMode.READ_WRITE_REQUIRED,
                     InterviewRuntimeRehydrateScope.FLOW_ONLY
             );
-            // 1) 先保证题库可用（缓存 miss 时从 DB 回补）。
+            // 检查 redis 中 题库 是否可用（不可用时从 mongodb 回补）。
             Map<String, String> questions = getOrLoadQuestions(sessionId);
             if (questions == null || questions.isEmpty()) {
                 return response.fail("interview questions not found");
             }
-
+            // 从 redis 中获取 当前面试流程
             InterviewFlowState flowState = interviewQuestionCacheService.getInterviewFlow(sessionId);
             if (flowState == null) {
-                // 2) flow 丢失时按 turns 恢复；恢复失败再兜底重建 flow。
                 CurrentQuestionState recoveredState = recoverCurrentQuestionFromTurns(sessionId, questions);
+
                 if (recoveredState.finished) {
                     Metrics.counter("flow_restore_source_total", "source", "turn_finished").increment();
                     response.setTotalScore(interviewQuestionCacheService.getSessionTotalScore(sessionId));
@@ -183,21 +178,18 @@ public class InterviewAgentOrchestrationService implements InterviewWorkflowServ
         if (turns == null || turns.isEmpty()) {
             return CurrentQuestionState.empty();
         }
-
+        // 如果已经结束，返回
         InterviewTurnLog latestTurn = turns.get(turns.size() - 1);
-        if (latestTurn == null) {
-            return CurrentQuestionState.empty();
-        }
         if (Boolean.TRUE.equals(latestTurn.getFinished())) {
             return CurrentQuestionState.finished();
         }
-
+        // 如果找到题目，返回
         String nextQuestionNumber = normalizeQuestionNumber(latestTurn.getNextQuestionNumber());
         String nextQuestionContent = resolveQuestionByNumber(sessionId, nextQuestionNumber, questions);
         if (StrUtil.isNotBlank(nextQuestionNumber) && StrUtil.isNotBlank(nextQuestionContent)) {
             return CurrentQuestionState.of(nextQuestionNumber, nextQuestionContent);
         }
-
+        // 题目没找到，通过题目内容匹配反查
         String nextQuestionFromTurn = latestTurn.getNextQuestion();
         if (StrUtil.isNotBlank(nextQuestionFromTurn)) {
             String matchedQuestionNumber = matchQuestionNumberByContent(sessionId, nextQuestionFromTurn, questions);
@@ -208,7 +200,7 @@ public class InterviewAgentOrchestrationService implements InterviewWorkflowServ
                 }
             }
         }
-
+        // 都失败了那么直接推算下一道主问题
         Integer answeredQuestionNo = extractMainQuestionNo(normalizeQuestionNumber(latestTurn.getQuestionNumber()));
         if (answeredQuestionNo != null) {
             int candidateQuestionNo = answeredQuestionNo + 1;

@@ -33,6 +33,8 @@ public interface AgentPropertiesService extends IService<AgentPropertiesDO> {
      */
     AgentPropertiesRespDTO getByName(String name);
 
+    AgentPropertiesDO getDOByName(String name);
+
     /**
      * 分页查询智能体配置
      */

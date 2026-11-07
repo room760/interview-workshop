@@ -1,0 +1,33 @@
+{
+  "collectedAtLocal": "2026-11-06T22:00:19.465047+08:00",
+  "gitHead": "6c666b88c0c7aa31e742a89452af838d235db411",
+  "workingTreeDirty": true,
+  "changedOrUntrackedPaths": 45,
+  "trackedDiffSha256": "5b82bd659cb9aa71c037f943324c4b99d022b2e71bdb0bb5e87ed62768c36f75",
+  "operatingSystem": "Windows-10-10.0.26100-SP0",
+  "javaExecutable": "E:\\Java\\jdk-17\\bin\\java.exe",
+  "javaVersion": "java version \"17.0.16\" 2025-07-15 LTS",
+  "redisVersion": "6.2.6",
+  "redisEndpoint": "127.0.0.1:16379 (isolated local test process)",
+  "dockerAvailable": false,
+  "realModelCalls": 0,
+  "mongoUsed": false,
+  "pgvectorUsed": false,
+  "embeddingUsed": false,
+  "mockAgentSleepMs": 120,
+  "knowledgeCorpusSha256": "f371644b2eeb4dc20cad0e1e3754d0f7d8a25d4a787ffd0494e3657a2d24d69d",
+  "datasetSha256": {
+    "historical24.json": "d5427f71d23cd3d0551df39853fe19104efd5aefafa5b4c86eadf70977aabead",
+    "existing_additions36.json": "d79c4e69d6604cdbff3d607dea2ba53102a49592dd6622ba10c8a7d4725f7802",
+    "proposed_queries.json": "2494b3272e4716bb80014b166bf6701444f83cd7510c3cc77f08efbd4a5c7952"
+  },
+  "benchmarkSourceSha256": {
+    "AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/jobmatch/rag/eval/RagEvaluationRunner.java": "09938f891ab22537fca022905d09f481794dcd79fbc936515f18c20ecd5c7a47",
+    "AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/application/jobmatch/application/RagBm25BenchmarkTest.java": "e3a7bd61298f1b2c324e70b724bd4c214096b17fca481ad885125e3979a2f3ff",
+    "AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/service/LocalSingleFlightBenchmarkTest.java": "6eb403e5dce47fafe7b2dda102ece9ce2f0f3ab64593db56a27eb2e22b72a2d1",
+    "AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/service/RedisFlightCoordinatorBenchmarkTest.java": "437d21f53aabd0cfd7cc9e925045b8fe6f58bb52d016d4e7e2cb5d11d1a477d1",
+    "AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/answer/InterviewAnswerParallelBenchmarkTest.java": "e0ea9f9e1867cf4d21399e274835f07657ac4faea849acf022a9ae7d7a43f6f6",
+    "AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/application/runtime/InterviewSessionRuntimeRehydrateServiceTest.java": "6c9e94bbde5cf16210654049b4aec44c9b01e61c2f4f9bbe229cfccdd5ce07e5",
+    "eval-rag.ps1": "652fd572013cf7bb6cd9381591f179d41ea1aa5c6b9c4eb0b1cd4fbfa0021c96"
+  }
+}

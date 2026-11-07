@@ -1,0 +1,10 @@
+[
+  {"query":"缓存里没有这个键，每次都打到数据库该怎么挡", "relevantDocumentIds":["redis-cache"], "category":"语义改写", "labelStatus":"待人工确认"},
+  {"query":"RDB 和 AOF 怎么选", "relevantDocumentIds":["redis-cache"], "category":"缩写", "labelStatus":"待人工确认"},
+  {"query":"ReadView 和 RR 隔离级别的关系", "relevantDocumentIds":["mysql-index"], "category":"缩写与长尾", "labelStatus":"待人工确认"},
+  {"query":"订单事件重复消费且写库超时，怎样处理幂等和重试", "relevantDocumentIds":["kafka-reliability","mysql-index","spring-cloud"], "category":"多条件", "labelStatus":"待人工确认"},
+  {"query":"面试官说一个 bean 没注入，如何排查自动装配条件", "relevantDocumentIds":["spring-boot"], "category":"同义词", "labelStatus":"待人工确认"},
+  {"query":"老年代不断上涨但 Young GC 正常，下一步查什么", "relevantDocumentIds":["jvm-gc"], "category":"长尾", "labelStatus":"待人工确认"},
+  {"query":"火星探测器如何着陆", "relevantDocumentIds":[], "category":"无相关文档", "labelStatus":"待人工确认"},
+  {"query":"吉他和弦如何调音", "relevantDocumentIds":[], "category":"无相关文档", "labelStatus":"待人工确认"}
+]

@@ -22,10 +22,12 @@ public class BusinessAgentResolver {
 
     public AgentPropertiesDO resolveRequired(BusinessAgentScene scene) {
         Set<String> candidateAgentNames = new LinkedHashSet<>();
+
         String configuredAgentName = bindingProperties.resolveAgentName(scene);
         if (StrUtil.isNotBlank(configuredAgentName)) {
             candidateAgentNames.add(configuredAgentName.trim());
         }
+
         candidateAgentNames.addAll(scene.getCandidateAgentNames());
 
         for (String candidateAgentName : candidateAgentNames) {

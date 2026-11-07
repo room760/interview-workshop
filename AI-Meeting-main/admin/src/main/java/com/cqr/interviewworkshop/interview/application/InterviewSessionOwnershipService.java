@@ -21,11 +21,13 @@ public class InterviewSessionOwnershipService {
         if (userId == null || userId <= 0) {
             throw new ClientException(InterviewErrorCodeEnum.INVALID_USER_ID);
         }
+
         InterviewSession session = interviewSessionRepository.findBySessionIdAndDelFlag(sessionId, 0)
                 .orElseThrow(() -> new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_NOT_FOUND));
         if (!userId.equals(session.getUserId())) {
             throw new ClientException(InterviewErrorCodeEnum.INTERVIEW_SESSION_ACCESS_DENIED);
         }
+
         return session;
     }
 }

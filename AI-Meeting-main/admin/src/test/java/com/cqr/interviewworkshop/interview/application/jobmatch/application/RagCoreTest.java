@@ -4,6 +4,7 @@ import com.cqr.interviewworkshop.interview.application.jobmatch.domain.JobKnowle
 import com.cqr.interviewworkshop.interview.application.jobmatch.rag.JobKnowledgeChunker;
 import com.cqr.interviewworkshop.interview.application.jobmatch.rag.LuceneKeywordIndex;
 import com.cqr.interviewworkshop.interview.application.jobmatch.rag.RagProperties;
+import com.cqr.interviewworkshop.interview.application.jobmatch.rag.eval.RagEvaluationRunner;
 import com.cqr.interviewworkshop.interview.application.jobmatch.rag.eval.RetrievalMetrics;
 import com.cqr.interviewworkshop.interview.application.jobmatch.rag.retriever.ReciprocalRankFusion;
 import com.cqr.interviewworkshop.interview.application.jobmatch.rag.retriever.RuleReranker;
@@ -12,10 +13,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
 
-import java.nio.file.Path;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,7 +44,7 @@ class RagCoreTest {
     }
 
     @Test
-    void suppliedKnowledgeActuallyUsesChunkingAndLabelsAreFixed() throws Exception {
+    void suppliedKnowledgeActuallyUsesChunkingAndEvaluationLabelsAreValid() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         List<JobKnowledgeDocument> documents;
         try (var stream = new ClassPathResource("rag/job-knowledge.json").getInputStream()) {
@@ -49,8 +52,22 @@ class RagCoreTest {
         }
         assertTrue(new JobKnowledgeChunker(new RagProperties()).chunk(documents.get(0)).size() > 1);
         try (var stream = new ClassPathResource("rag/evaluation.json").getInputStream()) {
-            List<java.util.Map<String, Object>> cases = mapper.readValue(stream, new TypeReference<>() { });
-            assertEquals(24, cases.size());
+            List<RagEvaluationRunner.Case> cases = mapper.readValue(stream, new TypeReference<>() { });
+            Set<String> knownIds = documents.stream().map(JobKnowledgeDocument::getDocumentId)
+                    .collect(Collectors.toSet());
+            Set<String> queries = new HashSet<>();
+            assertEquals(60, cases.size());
+            for (RagEvaluationRunner.Case item : cases) {
+                assertNotNull(item.query());
+                assertFalse(item.query().isBlank());
+                assertTrue(queries.add(item.query()), "重复查询: " + item.query());
+                assertNotNull(item.relevantDocumentIds());
+                assertFalse(item.relevantDocumentIds().isEmpty());
+                assertTrue(knownIds.containsAll(item.relevantDocumentIds()), "未知文档: " + item.query());
+            }
+            assertTrue(cases.stream().filter(item -> item.relevantDocumentIds().size() > 1).count() >= 12);
+            assertEquals(knownIds, cases.stream().flatMap(item -> item.relevantDocumentIds().stream())
+                    .collect(Collectors.toSet()));
         }
     }
 

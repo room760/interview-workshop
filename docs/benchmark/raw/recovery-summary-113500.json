@@ -1,0 +1,13 @@
+﻿{
+    "realRedisMongo":  true,
+    "integrationTests":  10,
+    "integrationFailures":  1,
+    "mockitoTests":  5,
+    "mockitoFailures":  0,
+    "expectedRecoverableObservations":  106,
+    "successfulRecoveries":  106,
+    "repeatedLatencySamples":  100,
+    "recoveryP50Ms":  23.7209,
+    "recoveryP95Ms":  39.4281,
+    "note":  "Failure in terminal session second cache hit is a known business assertion failure; see recovery-integration-report.md."
+}

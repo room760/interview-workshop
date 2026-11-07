@@ -67,10 +67,13 @@ public class AgentPropertiesLoader implements CommandLineRunner {
             }
         }
 
-        AgentPropertiesRespDTO latest = agentPropertiesService.getByName(agentName);
+        AgentPropertiesDO latest = agentPropertiesService.getDOByName(agentName);
         if (latest == null || latest.getId() == null) {
             return null;
         }
-        return getByAgentId(latest.getId());
+
+        agentPropertiesMap.put(latest.getId(), latest);
+
+        return latest;
     }
 }

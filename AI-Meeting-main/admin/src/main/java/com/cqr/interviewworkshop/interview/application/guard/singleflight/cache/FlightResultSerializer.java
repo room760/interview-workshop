@@ -25,13 +25,16 @@ public class FlightResultSerializer {
     public FlightStoredResult serialize(String value, Long ownerToken,
                                         InterviewAiSingleFlightConfiguration.StageFlightPolicy policy) {
         String safeValue = value == null ? "" : value;
+        // 转化为字节数组，gzip压缩的是字节数据
         byte[] rawBytes = safeValue.getBytes(StandardCharsets.UTF_8);
+        // 判断是否达压缩阈值
         int threshold = policy == null || policy.getCompressionThresholdBytes() == null
                 ? Integer.MAX_VALUE
                 : Math.max(0, policy.getCompressionThresholdBytes());
         String codec = normalizeCodec(policy == null ? null : policy.getCompressionCodec());
         boolean shouldCompress = rawBytes.length >= threshold && !"none".equals(codec);
         byte[] storedBytes = shouldCompress ? gzip(rawBytes) : rawBytes;
+
         return FlightStoredResult.builder()
                 .payload(Base64.getEncoder().encodeToString(storedBytes))
                 .codec(shouldCompress ? codec : "none")

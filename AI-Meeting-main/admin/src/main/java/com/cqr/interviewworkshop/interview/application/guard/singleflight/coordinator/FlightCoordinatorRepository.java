@@ -122,6 +122,7 @@ public class FlightCoordinatorRepository {
         long runningTtlMillis = policy == null || policy.getRunningTtlMillis() == null || policy.getRunningTtlMillis() <= 0
                 ? 15000L
                 : policy.getRunningTtlMillis();
+
         String raw = stringRedisTemplate.execute(
                 ACQUIRE_OR_JOIN_SCRIPT,
                 List.of(metaKey(requestKey), OWNER_SEQ_KEY),

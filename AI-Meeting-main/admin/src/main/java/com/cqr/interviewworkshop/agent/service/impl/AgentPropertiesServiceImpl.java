@@ -100,6 +100,16 @@ public class AgentPropertiesServiceImpl extends ServiceImpl<AgentPropertiesMappe
     }
 
     @Override
+    public AgentPropertiesDO getDOByName(String name) {
+        LambdaQueryWrapper<AgentPropertiesDO> queryWrapper =
+                Wrappers.lambdaQuery(AgentPropertiesDO.class)
+                        .eq(AgentPropertiesDO::getAgentName, name)
+                        .eq(AgentPropertiesDO::getDelFlag, 0);
+
+        return baseMapper.selectOne(queryWrapper);
+    }
+
+    @Override
     public PageInfo<AgentPropertiesRespDTO> getByPage(AgentPropertiesReqDTO requestParam) {
         Page<AgentPropertiesDO> page = new Page<>(requestParam.getPageNum(), requestParam.getPageSize());
         LambdaQueryWrapper<AgentPropertiesDO> queryWrapper = Wrappers.lambdaQuery(AgentPropertiesDO.class)

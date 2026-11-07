@@ -108,6 +108,7 @@ public class InterviewAiInvoker {
                 agentNameResolver.resolve(safeStage),
                 "xingchen"
         );
+
         return distributedInterviewAiSingleFlightService.execute(
                 safeStage,
                 key,

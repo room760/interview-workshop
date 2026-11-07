@@ -1,0 +1,1 @@
+{"scenario":"job_match_timeout_fallback","productionTimeoutSeconds":30,"observedElapsedMs":30011.2074,"mainEvaluationSucceeded":true,"jobMatchAvailable":false,"realModelCalls":0}

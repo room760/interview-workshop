@@ -96,37 +96,6 @@ public class InterviewSessionController {
                 sessionId, resumePdf, currentUser.getUserId(), currentUser.getUsername()));
     }
 
-    @PostMapping("/sessions/{sessionId}/interview/answer")
-    public Result<InterviewAnswerRespDTO> answerInterviewQuestion(
-            @PathVariable String sessionId,
-            @NotBlank(message = "questionNumber cannot be blank")
-            @Size(max = 32, message = "questionNumber length must be less than or equal to 32")
-            @RequestParam("questionNumber") String questionNumber,
-            @NotBlank(message = "answerContent cannot be blank")
-            @Size(max = 5000, message = "answerContent length must be less than or equal to 5000")
-            @RequestParam("answerContent") String answerContent,
-            @RequestParam(value = "requestId", required = false) String requestId,
-            @Size(max = 200, message = "jobTitle length must be less than or equal to 200")
-            @RequestParam(value = "jobTitle", required = false) String jobTitle,
-            @Size(max = 3000, message = "jobRequirement length must be less than or equal to 3000")
-            @RequestParam(value = "jobRequirement", required = false) String jobRequirement,
-            @Size(max = 200, message = "companyName length must be less than or equal to 200")
-            @RequestParam(value = "companyName", required = false) String companyName,
-            @Size(max = 253, message = "officialDomain length must be less than or equal to 253")
-            @RequestParam(value = "officialDomain", required = false) String officialDomain,
-            @CurrentUser UserContext currentUser) {
-        InterviewAnswerReqDTO requestParam = new InterviewAnswerReqDTO();
-        requestParam.setQuestionNumber(questionNumber);
-        requestParam.setAnswerContent(answerContent);
-        requestParam.setRequestId(requestId);
-        requestParam.setJobTitle(jobTitle);
-        requestParam.setJobRequirement(jobRequirement);
-        requestParam.setCompanyName(companyName);
-        requestParam.setOfficialDomain(officialDomain);
-        return Results.success(
-                interviewSessionFacade.answerInterviewQuestion(sessionId, requestParam, currentUser.getUserId()));
-    }
-
     @PostMapping(value = "/sessions/{sessionId}/interview/answer-json", consumes = "application/json")
     public Result<InterviewAnswerRespDTO> answerInterviewQuestionJson(
             @PathVariable String sessionId,
@@ -205,5 +174,36 @@ public class InterviewSessionController {
                 requestSessionId,
                 currentUser.getUserId(),
                 currentUser.getUsername()));
+    }
+
+    @PostMapping("/sessions/{sessionId}/interview/answer")
+    public Result<InterviewAnswerRespDTO> answerInterviewQuestion(
+            @PathVariable String sessionId,
+            @NotBlank(message = "questionNumber cannot be blank")
+            @Size(max = 32, message = "questionNumber length must be less than or equal to 32")
+            @RequestParam("questionNumber") String questionNumber,
+            @NotBlank(message = "answerContent cannot be blank")
+            @Size(max = 5000, message = "answerContent length must be less than or equal to 5000")
+            @RequestParam("answerContent") String answerContent,
+            @RequestParam(value = "requestId", required = false) String requestId,
+            @Size(max = 200, message = "jobTitle length must be less than or equal to 200")
+            @RequestParam(value = "jobTitle", required = false) String jobTitle,
+            @Size(max = 3000, message = "jobRequirement length must be less than or equal to 3000")
+            @RequestParam(value = "jobRequirement", required = false) String jobRequirement,
+            @Size(max = 200, message = "companyName length must be less than or equal to 200")
+            @RequestParam(value = "companyName", required = false) String companyName,
+            @Size(max = 253, message = "officialDomain length must be less than or equal to 253")
+            @RequestParam(value = "officialDomain", required = false) String officialDomain,
+            @CurrentUser UserContext currentUser) {
+        InterviewAnswerReqDTO requestParam = new InterviewAnswerReqDTO();
+        requestParam.setQuestionNumber(questionNumber);
+        requestParam.setAnswerContent(answerContent);
+        requestParam.setRequestId(requestId);
+        requestParam.setJobTitle(jobTitle);
+        requestParam.setJobRequirement(jobRequirement);
+        requestParam.setCompanyName(companyName);
+        requestParam.setOfficialDomain(officialDomain);
+        return Results.success(
+                interviewSessionFacade.answerInterviewQuestion(sessionId, requestParam, currentUser.getUserId()));
     }
 }

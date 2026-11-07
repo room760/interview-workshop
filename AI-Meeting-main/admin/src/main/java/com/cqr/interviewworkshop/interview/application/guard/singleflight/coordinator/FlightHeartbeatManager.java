@@ -28,8 +28,10 @@ public class FlightHeartbeatManager {
 
     public String start(FlightOwnerContext ownerContext, BooleanSupplier heartbeatAction) {
         long intervalMillis = ownerContext.getPolicy() == null || ownerContext.getPolicy().getHeartbeatIntervalMillis() == null
-                ? 3000L : Math.max(500L, ownerContext.getPolicy().getHeartbeatIntervalMillis());
+                ? 3000L
+                : Math.max(500L, ownerContext.getPolicy().getHeartbeatIntervalMillis());
         String taskKey = ownerContext.getRequestKey() + "|" + ownerContext.getOwnerToken();
+
         ScheduledFuture<?> future = scheduledExecutorService.scheduleAtFixedRate(
                 () -> heartbeatAction.getAsBoolean(),
                 intervalMillis,

@@ -61,6 +61,7 @@ public class AiCallGuardService {
     public <T> T execute(String stage, String requestKey, Callable<T> action) {
         String safeStage = StrUtil.isNotBlank(stage) ? stage : "interview-default";
         long startNano = System.nanoTime();
+
         try {
             T result;
             if (Boolean.TRUE.equals(configuration.getEnable())) {
@@ -90,8 +91,11 @@ public class AiCallGuardService {
     }
 
     private <T> T guardedExecute(String stage, Callable<T> action) throws Exception {
+        // 熔断器
         CircuitBreaker circuitBreaker = circuitBreakers.computeIfAbsent(stage, this::newCircuitBreaker);
+        // 并发隔离
         Bulkhead bulkhead = bulkheads.computeIfAbsent(stage, this::newBulkhead);
+        // 重试
         Retry retry = retries.computeIfAbsent(stage, this::newRetry);
 
         // 装饰顺序固定为：CircuitBreaker -> Bulkhead -> Retry -> TimeLimiter。
@@ -102,6 +106,7 @@ public class AiCallGuardService {
                         bulkhead,
                         Retry.decorateCallable(
                                 retry,
+                                // 超时控制
                                 () -> callWithTimeLimiter(stage, action)
                         )
                 )

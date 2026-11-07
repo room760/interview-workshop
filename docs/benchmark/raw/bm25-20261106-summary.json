@@ -1,0 +1,43 @@
+[ {
+  "mode" : "BM25",
+  "dataset" : "historical24",
+  "queries" : 24,
+  "positiveObservations" : 72,
+  "runs" : 3,
+  "recallAt5" : 1.0,
+  "mrrAt5" : 1.0,
+  "ndcgAt5" : 1.0,
+  "averageMs" : 3.5004680555555554,
+  "p50Ms" : 2.8537,
+  "p95Ms" : 6.8687,
+  "negativeQueries" : 0,
+  "negativeFalsePositiveRate" : null
+}, {
+  "mode" : "BM25",
+  "dataset" : "existing_additions36",
+  "queries" : 36,
+  "positiveObservations" : 108,
+  "runs" : 3,
+  "recallAt5" : 1.0,
+  "mrrAt5" : 0.9467592592592591,
+  "ndcgAt5" : 0.9491975995728934,
+  "averageMs" : 2.4603712962962963,
+  "p50Ms" : 2.216,
+  "p95Ms" : 3.9296,
+  "negativeQueries" : 0,
+  "negativeFalsePositiveRate" : null
+}, {
+  "mode" : "BM25",
+  "dataset" : "proposed_queries",
+  "queries" : 8,
+  "positiveObservations" : 18,
+  "runs" : 3,
+  "recallAt5" : 1.0,
+  "mrrAt5" : 1.0,
+  "ndcgAt5" : 0.9911504049209956,
+  "averageMs" : 1.8432277777777777,
+  "p50Ms" : 1.7435,
+  "p95Ms" : 2.4549,
+  "negativeQueries" : 2,
+  "negativeFalsePositiveRate" : 0.5
+} ]

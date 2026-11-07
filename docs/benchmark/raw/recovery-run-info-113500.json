@@ -1,0 +1,11 @@
+﻿{
+    "suite":  "recovery",
+    "startedAtLocal":  "2026-11-07T11:35:00.7857353+08:00",
+    "gitHead":  "6c666b88c0c7aa31e742a89452af838d235db411",
+    "javaHome":  "E:\\Java\\jdk-17",
+    "mavenExecutable":  "E:\\Java\\maven\\apache-maven-3.8.9\\bin\\mvn.cmd",
+    "candidate120Sha256":  "027c08e82189e0f02a9af129a9453e55da47ce2cf0ad0960ab4ed78472a47bd8",
+    "realEmbeddingRequested":  false,
+    "mockModelTasks":  false,
+    "realRedisMongoRequested":  true
+}

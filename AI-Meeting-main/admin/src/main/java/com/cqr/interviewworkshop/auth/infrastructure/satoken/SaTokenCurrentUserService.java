@@ -85,6 +85,7 @@ public class SaTokenCurrentUserService implements CurrentUserService {
         }
 
         String cacheKey = USER_ID_CACHE_KEY + username;
+
         String cachedUserId = stringRedisTemplate.opsForValue().get(cacheKey);
         if (StrUtil.isNotBlank(cachedUserId)) {
             stringRedisTemplate.expire(cacheKey, 30L, TimeUnit.MINUTES);
@@ -94,7 +95,6 @@ public class SaTokenCurrentUserService implements CurrentUserService {
         LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class)
                 .eq(UserDO::getUsername, username)
                 .select(UserDO::getId);
-
         UserDO userDO = userMapper.selectOne(queryWrapper);
         if (userDO == null || userDO.getId() == null) {
             throw new ClientException("user does not exist: " + username);

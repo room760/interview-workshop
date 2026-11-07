@@ -1,0 +1,372 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] interview-workshop                                                 [pom]
+[INFO] interview-workshop-admin                                           [jar]
+[INFO] 
+[INFO] ---------------------< com.cqr:interview-workshop >---------------------
+[INFO] Building interview-workshop 1.0-SNAPSHOT                           [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-build-baseline) @ interview-workshop ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] ------------------< com.cqr:interview-workshop-admin >------------------
+[INFO] Building interview-workshop-admin 1.0-SNAPSHOT                     [2/2]
+[INFO]   from admin\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-build-baseline) @ interview-workshop-admin ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ interview-workshop-admin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 23 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ interview-workshop-admin ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 394 source files with javac [debug target 17] to target\classes
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/common/web/GlobalExceptionHandler.java: ĳЩ�����ļ�ʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/common/web/GlobalExceptionHandler.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/coordinator/FlightNotificationService.java: D:\AI-Meeting-main\AI-Meeting-main\admin\src\main\java\com\cqr\interviewworkshop\interview\application\guard\singleflight\coordinator\FlightNotificationService.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/coordinator/FlightNotificationService.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ interview-workshop-admin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\AI-Meeting-main\AI-Meeting-main\admin\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:testCompile (default-testCompile) @ interview-workshop-admin ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 49 source files with javac [debug target 17] to target\test-classes
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/common/ratelimit/RedissonRequestRateLimitServiceTest.java: D:\AI-Meeting-main\AI-Meeting-main\admin\src\test\java\com\cqr\interviewworkshop\common\ratelimit\RedissonRequestRateLimitServiceTest.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/common/ratelimit/RedissonRequestRateLimitServiceTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/session/InterviewSessionFacadeConsistencyTest.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/session/InterviewSessionFacadeConsistencyTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ interview-workshop-admin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerParallelBenchmarkTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+09:59:49.761 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:49.761 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:49.895 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:50.253 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:50.253 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:50.379 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:50.631 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:50.632 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:50.756 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:51.009 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:51.009 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:51.134 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:51.385 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:51.385 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:51.511 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:51.762 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:51.762 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:51.889 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:52.140 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:52.140 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:52.264 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:52.512 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:52.512 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:52.637 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:52.887 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:52.887 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:53.013 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:53.264 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:53.264 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:53.387 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:53.635 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:53.635 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:53.760 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:54.012 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:54.012 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:54.137 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:54.386 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:54.386 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:54.511 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:54.759 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:54.759 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:54.883 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:55.132 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:55.132 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:55.258 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:55.509 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:55.509 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:55.632 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:55.881 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:55.881 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:56.005 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:56.254 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:56.254 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:56.379 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:56.628 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:56.629 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:56.753 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:57.004 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:57.005 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:57.131 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:57.380 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:57.380 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:57.503 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:57.750 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:57.750 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:57.872 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:58.127 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:58.128 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:58.262 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:58.511 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:58.511 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:58.637 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:58.885 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:58.885 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:59.011 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:59.258 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:59.258 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:59.385 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+09:59:59.637 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+09:59:59.637 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+09:59:59.760 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:00.011 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:00.011 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:00.136 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:00.388 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:00.388 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:00.512 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:00.762 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:00.762 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:00.886 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:01.136 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:01.136 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:01.258 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:01.515 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:01.515 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:01.649 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:01.898 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:01.898 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:02.023 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:02.274 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:02.275 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:02.398 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:02.648 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:02.648 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:02.772 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:03.019 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:03.019 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:03.147 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:03.399 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:03.399 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:03.523 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:03.772 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:03.773 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:03.895 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:04.145 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:04.145 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:04.270 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:04.519 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:04.519 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:04.647 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:04.905 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:04.906 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:05.033 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:05.281 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:05.282 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:05.404 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:05.655 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:05.657 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:05.778 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:06.029 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:06.031 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:06.167 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:06.416 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:06.416 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:06.540 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:06.788 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:06.788 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:06.911 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:07.160 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:07.160 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:07.285 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:07.531 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:07.531 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:07.652 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:07.904 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:07.904 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:08.030 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:08.282 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:08.281 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:08.405 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:08.655 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:08.655 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:08.779 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:09.029 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:09.029 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:09.153 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:09.406 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:09.406 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:09.531 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:09.780 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:09.780 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:09.906 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:10.158 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:10.158 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:10.283 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:10.535 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:10.534 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:10.658 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:10.906 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:10.906 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:11.030 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:11.279 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:11.280 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:11.404 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:11.655 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:11.655 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:11.781 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:12.035 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:12.035 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:12.160 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:12.411 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:12.411 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:12.536 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:12.786 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:12.787 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:12.911 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:13.161 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:13.161 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:13.286 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:13.537 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:13.537 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:13.662 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:13.910 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:13.911 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:14.035 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:14.284 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:14.284 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:14.409 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:14.661 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:14.661 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:14.785 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:15.034 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:15.036 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:15.159 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:15.408 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:15.408 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:15.533 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:15.782 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:15.782 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:15.907 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:16.157 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:16.157 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:16.282 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:16.532 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:16.532 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:16.656 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:16.905 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:16.905 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:17.029 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:17.281 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:17.281 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:17.405 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:17.650 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:17.650 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:17.773 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:18.022 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:18.022 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:18.144 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:18.392 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:18.392 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:18.515 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:18.764 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:18.764 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:18.888 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:19.138 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:19.138 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:19.263 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:19.511 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:19.511 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:19.635 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:19.885 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:19.885 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:20.010 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:20.262 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:20.262 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:20.386 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:20.636 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:20.636 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:20.760 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:21.011 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:21.011 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:21.137 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:21.385 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:21.385 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:21.509 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:21.759 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:21.759 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:21.882 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:22.132 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:22.132 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:22.256 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:22.505 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:22.505 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:22.631 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:22.877 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:22.877 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:23.000 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:23.249 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:23.249 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:23.374 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:23.623 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:23.623 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:23.749 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:23.998 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:23.998 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:24.122 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:24.371 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:24.371 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:24.497 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:24.745 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:24.746 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:24.870 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:25.120 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:25.120 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:25.245 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:25.491 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:25.491 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:25.616 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:25.865 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:25.865 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:25.989 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:26.238 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:26.238 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:26.362 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:26.611 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:26.611 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:26.736 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+10:00:26.986 [pool-2-thread-2] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start evaluation agent, question=1
+10:00:26.986 [pool-2-thread-1] INFO com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- start job match agent, question=1
+10:00:27.112 [main] WARN com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline -- job match unavailable, continue with evaluation result, sessionId=benchmark-session
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.46 s -- in com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerParallelBenchmarkTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for interview-workshop 1.0-SNAPSHOT:
+[INFO] 
+[INFO] interview-workshop ................................. SUCCESS [  0.859 s]
+[INFO] interview-workshop-admin ........................... SUCCESS [01:40 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:42 min
+[INFO] Finished at: 2026-11-07T10:00:27+08:00
+[INFO] ------------------------------------------------------------------------

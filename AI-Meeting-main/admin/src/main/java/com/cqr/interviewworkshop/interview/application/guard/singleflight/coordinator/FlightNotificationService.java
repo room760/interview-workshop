@@ -39,13 +39,21 @@ public class FlightNotificationService {
         body.put("errorType", errorType == null ? "" : errorType.name());
         body.put("retryable", retryable ? "1" : "0");
         body.put("finishedAt", String.valueOf(System.currentTimeMillis()));
-        stringRedisTemplate.opsForStream().add(StreamRecords.mapBacked(body).withStreamKey(streamKey(requestKey)));
+
+        stringRedisTemplate.opsForStream().add(
+                StreamRecords
+                        .mapBacked(body)
+                        .withStreamKey(streamKey(requestKey))
+        );
     }
 
     public FlightStatus waitForTerminalEvent(String requestKey, long blockTimeoutMillis) {
         List<MapRecord<String, Object, Object>> records = stringRedisTemplate.opsForStream().read(
-                StreamReadOptions.empty().count(1).block(Duration.ofMillis(Math.max(1L, blockTimeoutMillis))),
-                StreamOffset.create(streamKey(requestKey), ReadOffset.latest())
+                StreamReadOptions.empty()
+                        .count(1)
+                        .block(Duration.ofMillis(Math.max(1L, blockTimeoutMillis))),
+                StreamOffset
+                        .create(streamKey(requestKey), ReadOffset.latest())
         );
         if (records == null || records.isEmpty()) {
             return null;

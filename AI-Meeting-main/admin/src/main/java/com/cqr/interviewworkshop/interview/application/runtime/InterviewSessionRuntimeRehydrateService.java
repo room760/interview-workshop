@@ -64,13 +64,19 @@ public class InterviewSessionRuntimeRehydrateService {
             String sessionId,
             InterviewRuntimeLoadMode loadMode,
             InterviewRuntimeRehydrateScope scope) {
-        InterviewRuntimeRehydrateScope resolvedScope = scope == null ? InterviewRuntimeRehydrateScope.FULL_RUNTIME : scope;
         if (StrUtil.isBlank(sessionId)) {
-            return buildView(loadMode, InterviewRuntimeRestoreSource.NONE, InterviewRuntimeConfidence.READ_ONLY, false, null);
+            return buildView(loadMode, InterviewRuntimeRestoreSource.NONE,
+                    InterviewRuntimeConfidence.READ_ONLY, false, null);
         }
+
+        InterviewRuntimeRehydrateScope resolvedScope = scope == null ?
+                InterviewRuntimeRehydrateScope.FULL_RUNTIME
+                : scope;
         if (isRuntimeReady(sessionId, resolvedScope)) {
-            return buildView(loadMode, InterviewRuntimeRestoreSource.CACHE, InterviewRuntimeConfidence.EXACT, false, getRuntimeSnapshot(sessionId));
+            return buildView(loadMode, InterviewRuntimeRestoreSource.CACHE,
+                    InterviewRuntimeConfidence.EXACT, false, getRuntimeSnapshot(sessionId));
         }
+
         RLock lock = null;
         try {
             lock = runtimeLockService.acquire(sessionId);
@@ -81,17 +87,18 @@ public class InterviewSessionRuntimeRehydrateService {
                 }
                 lock = runtimeLockService.acquire(sessionId, FOLLOWER_RECHECK_MILLIS);
             }
+
             if (isRuntimeReady(sessionId, resolvedScope)) {
                 return buildView(loadMode, InterviewRuntimeRestoreSource.CACHE, InterviewRuntimeConfidence.EXACT, false, getRuntimeSnapshot(sessionId));
             }
+
             if (lock == null) {
                 log.warn(
                 "Failed to acquire runtime rehydrate lock after waiting, sessionId={}",
                 sessionId);
-
-                return buildView(
-                loadMode, InterviewRuntimeRestoreSource.NONE, InterviewRuntimeConfidence.READ_ONLY, false, getRuntimeSnapshot(sessionId));
+                return buildView(loadMode, InterviewRuntimeRestoreSource.NONE, InterviewRuntimeConfidence.READ_ONLY, false, getRuntimeSnapshot(sessionId));
             }
+
             InterviewSessionRuntimeView rebuilt = rebuildRuntime(sessionId, loadMode, resolvedScope);
             if (rebuilt != null) {
                 return rebuilt;
@@ -143,25 +150,23 @@ public class InterviewSessionRuntimeRehydrateService {
             String sessionId,
             InterviewRuntimeLoadMode loadMode,
             InterviewRuntimeRehydrateScope scope) {
+        // 尝试从快照中恢复
         InterviewSessionRuntimeSnapshot snapshot = getRuntimeSnapshot(sessionId);
         if (snapshot != null && canRehydrateFromSnapshot(snapshot, scope)) {
             writeSnapshotToCache(sessionId, snapshot, scope);
-            return buildView(
-                    loadMode,
-                    InterviewRuntimeRestoreSource.RUNTIME_SNAPSHOT,
-                    snapshot.getRebuildConfidence() == null ? InterviewRuntimeConfidence.EXACT : snapshot.getRebuildConfidence(),
-                    true,
-                    snapshot
-            );
+            return buildView(loadMode, InterviewRuntimeRestoreSource.RUNTIME_SNAPSHOT, snapshot.getRebuildConfidence() == null ? InterviewRuntimeConfidence.EXACT : snapshot.getRebuildConfidence(), true, snapshot);
         }
 
+        // 从各数据中推导
         InterviewRecordDO record = getLatestRecord(sessionId);
         InterviewSession session = interviewSessionService.getBySessionId(sessionId);
         InterviewQuestion question = interviewQuestionService.getBySessionId(sessionId);
+
         RuntimeMaterial material = buildRuntimeMaterial(sessionId, session, question, record, snapshot);
         if (material == null) {
             return buildView(loadMode, InterviewRuntimeRestoreSource.NONE, InterviewRuntimeConfidence.READ_ONLY, false, snapshot);
         }
+
         if (requiresQuestionMaterial(scope) && !hasQuestionMaterial(material.questions)
                 && loadMode == InterviewRuntimeLoadMode.READ_WRITE_REQUIRED) {
             InterviewRuntimeConfidence confidence = isTerminalSession(session)
@@ -170,14 +175,9 @@ public class InterviewSessionRuntimeRehydrateService {
             writePartialMaterial(sessionId, material, confidence == InterviewRuntimeConfidence.TERMINAL, scope);
             return buildView(loadMode, resolveRestoreSource(record, question), confidence, true, snapshot);
         }
+
         writePartialMaterial(sessionId, material, isTerminalSession(session), scope);
-        return buildView(
-                loadMode,
-                resolveRestoreSource(record, question),
-                material.confidence,
-                true,
-                snapshot
-        );
+        return buildView(loadMode, resolveRestoreSource(record, question), material.confidence, true, snapshot);
     }
 
     private RuntimeMaterial buildRuntimeMaterial(
@@ -293,6 +293,7 @@ public class InterviewSessionRuntimeRehydrateService {
         if (snapshot == null) {
             return;
         }
+
         List<InterviewTurnLog> turns = Collections.emptyList();
         if (scope.includesTurns() || scope.includesScore()) {
             turns = runtimeSnapshotService.loadPersistedTurns(sessionId);

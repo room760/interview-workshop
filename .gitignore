@@ -2,6 +2,7 @@
 tmp/
 .idea/
 **/.idea/
+**/.idea_backup/
 **/.vscode/
 **/node_modules/
 **/dist/

@@ -32,9 +32,10 @@ import java.util.Map;
 public class InterviewQuestionExtractionService {
 
     private static final String EXTRACTION_PROMPT =
-            "Extract technical interview questions from the uploaded resume. "
-                    + "Return JSON only with keys questions, sugest, type, and resumeScore. "
-                    + "Do not output smallTalk, greetings, or fallback chat content.";
+            "根据上传的简历提取技术面试问题。"
+                    + "只输出纯JSON，禁止额外说明、markdown、多余文字。"
+                    + "JSON固定key：questions、suggest、type、resumeScore。"
+                    + "不允许闲聊、打招呼、解释性话术。";
 
     private final BusinessAgentResolver businessAgentResolver;
     private final XingChenAIClient xingChenAIClient;
@@ -48,48 +49,48 @@ public class InterviewQuestionExtractionService {
         InterviewQuestionRespDTO response = new InterviewQuestionRespDTO();
         response.setSessionId(reqDTO.getSessionId());
         response.setUserName(reqDTO.getUserName());
-
-        AgentPropertiesDO agentProperties = businessAgentResolver.resolveRequired(
-                BusinessAgentScene.INTERVIEW_QUESTION_EXTRACTION);
+        AgentPropertiesDO agentProperties = businessAgentResolver.resolveRequired(BusinessAgentScene.INTERVIEW_QUESTION_EXTRACTION);
         reqDTO.setAgentId(agentProperties.getId());
         response.setIsSuccess(0);
 
         // 哈希计算是纯本地操作，在获取分布式锁之前完成，减少锁占用时间。
         String resumeContentHash = computeResumeHash(reqDTO.getResumePdf(), reqDTO.getSessionId());
-
         RLock heavyLock = null;
         long startTime = System.currentTimeMillis();
         try {
-            // 同一 session 的提取属于重操作，先拿会话级重锁，避免并发上传/提取造成重复消耗和状态覆盖。
             heavyLock = interviewAiSessionLockService.acquire(reqDTO.getSessionId(), InterviewAiGuardStage.INTERVIEW_EXTRACTION);
             if (heavyLock == null) {
                 response.setErrorMessage("AI_OVERLOADED: extraction is processing, please retry");
                 return response;
             }
 
+            // 上传到讯飞星辰的文件服务，获取一个文件 URL
             String fileUrl = uploadResumeIfPresent(reqDTO, agentProperties, response);
             if (fileUrl == null) {
                 return response;
             }
 
+            // 调用简历出题官
             String fullContent = interviewAiInvoker.callAiSyncWithFile(
                     EXTRACTION_PROMPT,
                     reqDTO.getSessionId(),
                     agentProperties,
                     fileUrl,
                     InterviewAiGuardStage.INTERVIEW_EXTRACTION,
-                    interviewAiInvoker.buildSingleFlightKey(InterviewAiGuardStage.INTERVIEW_EXTRACTION, reqDTO.getSessionId(), resumeContentHash)
+                    interviewAiInvoker.buildSingleFlightKey(
+                            InterviewAiGuardStage.INTERVIEW_EXTRACTION,
+                            reqDTO.getSessionId(),
+                            resumeContentHash
+                    )
             );
 
             long responseTime = System.currentTimeMillis() - startTime;
             reqDTO.setResumeFileUrl(fileUrl);
-
-            // 先持久化原始响应，再做结构化解析；解析失败时仍可通过原始响应排障与回补。
+            // 持久化原始响应到mongodb
             persistRawResponse(reqDTO, fullContent, responseTime);
-
             response.setResumeFileUrl(fileUrl);
             response.setResponseTime((int) responseTime);
-
+            // 解析原始内容，提取面试题等业务数据，并初始化面试流程
             if (!populateStructuredResponse(reqDTO, response, fullContent)) {
                 return response;
             }
@@ -145,6 +146,7 @@ public class InterviewQuestionExtractionService {
             response.setErrorMessage("resume file does not exist");
             return null;
         }
+
         try {
             String fileUrl = xingChenAIClient.uploadFile(
                     reqDTO.getResumePdf(),
@@ -184,7 +186,7 @@ public class InterviewQuestionExtractionService {
                     reqDTO.getSessionId(),
                     fullContent == null ? 0 : fullContent.length(),
                     digestForLog(fullContent));
-
+            //  1)  检查 AI 工作流错误
             String workflowErrorMessage = interviewResponseParser.extractWorkflowErrorMessage(fullContent);
             if (StrUtil.isNotBlank(workflowErrorMessage)) {
                 response.setErrorMessage(workflowErrorMessage);
@@ -193,6 +195,7 @@ public class InterviewQuestionExtractionService {
                 return false;
             }
 
+            //  2)  把原始文本解析成 Map，读取各个业务字段
             String extractedContent = interviewResponseParser.extractContentFromInterviewResponse(fullContent);
             log.info("Extracted interview content summary, sessionId={}, contentLength={}, contentHash={}",
                     reqDTO.getSessionId(),
@@ -202,7 +205,6 @@ public class InterviewQuestionExtractionService {
                 response.setErrorMessage("interview question response content is blank");
                 return false;
             }
-
             Map<String, Object> responseMap = interviewResponseParser.extractStructuredResult(
                     extractedContent,
                     "questions",
@@ -217,13 +219,13 @@ public class InterviewQuestionExtractionService {
                 log.warn("Interview question response parse failed, responseMap is null");
                 return false;
             }
-
             log.info("Interview question response fields: {}", responseMap.keySet());
+
+            //  3)  整理各个业务字段
             Map<String, Object> resumeContext = buildResumeContext(responseMap);
             if (!resumeContext.isEmpty()) {
                 interviewQuestionCacheService.cacheResumeContext(reqDTO.getSessionId(), resumeContext);
             }
-
             List<String> questions = normalizeStringList(responseMap.get("questions"));
             if (questions.isEmpty()) {
                 String smallTalk = interviewResponseParser.asString(responseMap.get("smallTalk"));
@@ -235,13 +237,14 @@ public class InterviewQuestionExtractionService {
                 return false;
             }
 
+            //  4)  写入 Redis 业务缓存
             interviewQuestionCacheService.cacheInterviewQuestions(reqDTO.getSessionId(), questions);
-            Map<String, String> questionMap =
-                    interviewQuestionCacheService.getSessionInterviewQuestions(reqDTO.getSessionId());
+            //  5)  初始化面试流程
+            Map<String, String> questionMap = interviewQuestionCacheService.getSessionInterviewQuestions(reqDTO.getSessionId());
             response.setQuestions(questionMap);
             response.setQuestionCount(questions.size());
             interviewQuestionCacheService.initInterviewFlow(reqDTO.getSessionId(), questions.size());
-
+            //  6)  填充返回给前端的 response
             List<String> suggestions = normalizeSuggestions(responseMap);
             if (!suggestions.isEmpty()) {
                 interviewQuestionCacheService.cacheInterviewSuggestions(reqDTO.getSessionId(), suggestions);
@@ -252,7 +255,6 @@ public class InterviewQuestionExtractionService {
             } else {
                 log.warn("Interview question response does not contain suggestions");
             }
-
             // type 字段兼容历史别名，保证 interviewDirection/interviewType 在不同模型输出下都能回补。
             String interviewType = interviewResponseParser.asString(responseMap.get("type"));
             if (StrUtil.isBlank(interviewType)) {
@@ -270,7 +272,6 @@ public class InterviewQuestionExtractionService {
             } else {
                 log.warn("Interview question response does not contain type field");
             }
-
             Integer resumeScore = interviewResponseParser.parseScoreFromResponse(responseMap, "resumeScore");
             if (resumeScore != null) {
                 interviewQuestionCacheService.cacheResumeScore(reqDTO.getSessionId(), resumeScore);
@@ -279,6 +280,7 @@ public class InterviewQuestionExtractionService {
                 log.warn("Interview question response does not contain valid resumeScore field");
             }
 
+            //  7)  持久化结构化业务字段
             // 结构化二次落库用于 Redis 丢失后的恢复来源，避免报告阶段出现字段缺失。
             persistStructuredFields(reqDTO, questions, suggestions, resumeScore, interviewType, resumeContext);
             interviewQuestionCacheService.resetSessionScore(reqDTO.getSessionId());
@@ -323,14 +325,14 @@ public class InterviewQuestionExtractionService {
             log.debug("Resume PDF is null or empty, cannot compute content hash, sessionId={}", sessionId);
             return null;
         }
+
         try {
             byte[] fileBytes = resumePdf.getBytes();
             String hash = DigestUtil.sha256Hex(fileBytes);
             log.debug("Computed resume content hash, sessionId={}, hash={}", sessionId, hash);
             return hash;
         } catch (Exception e) {
-            log.warn("Failed to read resume PDF bytes for content hashing, sessionId={}, error={}",
-                    sessionId, e.getMessage());
+            log.warn("Failed to read resume PDF bytes for content hashing, sessionId={}, error={}", sessionId, e.getMessage());
             return null;
         }
     }

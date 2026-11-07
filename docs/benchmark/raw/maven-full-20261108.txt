@@ -1,0 +1,1058 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] interview-workshop                                                 [pom]
+[INFO] interview-workshop-admin                                           [jar]
+[INFO] 
+[INFO] ---------------------< com.cqr:interview-workshop >---------------------
+[INFO] Building interview-workshop 1.0-SNAPSHOT                           [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-build-baseline) @ interview-workshop ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] ------------------< com.cqr:interview-workshop-admin >------------------
+[INFO] Building interview-workshop-admin 1.0-SNAPSHOT                     [2/2]
+[INFO]   from admin\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-build-baseline) @ interview-workshop-admin ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ interview-workshop-admin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 23 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ interview-workshop-admin ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 394 source files with javac [debug target 17] to target\classes
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/common/web/GlobalExceptionHandler.java: ĳЩ�����ļ�ʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/common/web/GlobalExceptionHandler.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/coordinator/FlightNotificationService.java: D:\AI-Meeting-main\AI-Meeting-main\admin\src\main\java\com\cqr\interviewworkshop\interview\application\guard\singleflight\coordinator\FlightNotificationService.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/coordinator/FlightNotificationService.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ interview-workshop-admin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\AI-Meeting-main\AI-Meeting-main\admin\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:testCompile (default-testCompile) @ interview-workshop-admin ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 50 source files with javac [debug target 17] to target\test-classes
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/common/ratelimit/RedissonRequestRateLimitServiceTest.java: D:\AI-Meeting-main\AI-Meeting-main\admin\src\test\java\com\cqr\interviewworkshop\common\ratelimit\RedissonRequestRateLimitServiceTest.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/common/ratelimit/RedissonRequestRateLimitServiceTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/session/InterviewSessionFacadeConsistencyTest.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/session/InterviewSessionFacadeConsistencyTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ interview-workshop-admin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.cqr.interviewworkshop.actuator.ActuatorHealthEndpointTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2026-11-08T00:11:42.665+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/E:/Java/mavenJar/org/json/json/20240303/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/E:/Java/mavenJar/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-11-08T00:11:42.695+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.a.ActuatorHealthEndpointTest       : Starting ActuatorHealthEndpointTest using Java 17.0.16 with PID 34572 (started by cqr37 in D:\AI-Meeting-main\AI-Meeting-main\admin)
+2026-11-08T00:11:42.697+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.a.ActuatorHealthEndpointTest       : The following 2 profiles are active: "satoken", "sse"
+2026-11-08T00:11:44.080+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-08T00:11:44.082+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-11-08T00:11:44.099+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+2026-11-08T00:11:44.178+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.cqr.interviewworkshop.actuator]' package. Please check your configuration.
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.9 
+2026-11-08T00:11:56.636+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.a.v.pgvector.PgVectorStore           : Using the vector table name: vector_store. Is empty: false
+2026-11-08T00:11:56.641+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.a.v.pgvector.PgVectorStore           : Initializing PGVectorStore schema for table: vector_store in schema: public
+2026-11-08T00:11:56.641+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.a.v.pgvector.PgVectorStore           : vectorTableValidationsEnabled false
+2026-11-08T00:11:57.078+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.2.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/17.0.16+12-LTS-247"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@5a3d69be], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@5e6caac9, com.mongodb.Jep395RecordCodecProvider@1dccb281, com.mongodb.KotlinCodecProvider@5d2e2b8d]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@6c6fd90f], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2026-11-08T00:11:57.105+08:00  INFO 34572 --- [interview-workshop-agent-admin] [127.0.0.1:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server 127.0.0.1:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.lambda$open$0(SocketStream.java:85) ~[mongodb-driver-core-5.2.1.jar:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:85) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:233) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.lookupServerDescription(DefaultServerMonitor.java:219) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitor.run(DefaultServerMonitor.java:176) ~[mongodb-driver-core-5.2.1.jar:na]
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:76) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:104) ~[mongodb-driver-core-5.2.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:79) ~[mongodb-driver-core-5.2.1.jar:na]
+	... 3 common frames omitted
+
+2026-11-08T00:11:57.678+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:11:57.679+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:11:57.695+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-08T00:11:57.716+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 36 ms
+2026-11-08T00:11:57.993+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.a.ActuatorHealthEndpointTest       : Started ActuatorHealthEndpointTest in 15.782 seconds (process running for 18.298)
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.96 s -- in com.cqr.interviewworkshop.actuator.ActuatorHealthEndpointTest
+[INFO] Running com.cqr.interviewworkshop.agent.application.BusinessAgentResolverTest
+2026-11-08T00:11:59.009+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.a.a.BusinessAgentResolver          : Configured agent not found, fallback matched scene=interview-question-extraction, configuredName=�����ڵĳ����, matchedName=���Գ����, agentId=8
+2026-11-08T00:11:59.018+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.a.a.BusinessAgentResolver          : Resolved business agent scene=interview-demeanor, agentName=��̬������, agentId=9
+2026-11-08T00:11:59.022+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.a.a.BusinessAgentResolver          : No agent configuration found for scene=general-agent-chat, candidateNames=[�����ڵ�ͨ��������, ͨ��������]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 s -- in com.cqr.interviewworkshop.agent.application.BusinessAgentResolverTest
+[INFO] Running com.cqr.interviewworkshop.ai.service.impl.AiConversationServiceImplAuthTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 s -- in com.cqr.interviewworkshop.ai.service.impl.AiConversationServiceImplAuthTest
+[INFO] Running com.cqr.interviewworkshop.assistant.api.AssistantRoutingControllerTest
+2026-11-08T00:11:59.606+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:11:59.607+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:11:59.610+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.293 s -- in com.cqr.interviewworkshop.assistant.api.AssistantRoutingControllerTest
+[INFO] Running com.cqr.interviewworkshop.auth.infrastructure.web.CurrentUserArgumentResolverTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.cqr.interviewworkshop.auth.infrastructure.web.CurrentUserArgumentResolverTest
+[INFO] Running com.cqr.interviewworkshop.auth.infrastructure.websocket.SaTokenWebSocketAuthServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s -- in com.cqr.interviewworkshop.auth.infrastructure.websocket.SaTokenWebSocketAuthServiceTest
+[INFO] Running com.cqr.interviewworkshop.common.biz.user.UserFlowRiskControlFilterTest
+2026-11-08T00:12:00.010+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.c.b.u.UserFlowRiskControlFilter    : Request rejected by rate limiter, key=user:alice, bucket=interview-answer, uri=/api/interview-workshop/v1/interview/answer
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.434 s -- in com.cqr.interviewworkshop.common.biz.user.UserFlowRiskControlFilterTest
+[INFO] Running com.cqr.interviewworkshop.common.ratelimit.RedissonRequestRateLimitServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.438 s -- in com.cqr.interviewworkshop.common.ratelimit.RedissonRequestRateLimitServiceTest
+[INFO] Running com.cqr.interviewworkshop.common.ratelimit.RequestRateLimitKeyResolverTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.cqr.interviewworkshop.common.ratelimit.RequestRateLimitKeyResolverTest
+[INFO] Running com.cqr.interviewworkshop.common.web.GlobalExceptionHandlerTest
+2026-11-08T00:12:00.816+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:00.816+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:00.817+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-08T00:12:00.846+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/validation [ex] sessionId����Ϊ��
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in com.cqr.interviewworkshop.common.web.GlobalExceptionHandlerTest
+[INFO] Running com.cqr.interviewworkshop.controller.AgentPropertiesControllerTest
+2026-11-08T00:12:00.949+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:00.949+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:00.950+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-08T00:12:00.997+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:00.997+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:00.998+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-08T00:12:01.022+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.022+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.022+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-08T00:12:01.039+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.039+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.039+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-08T00:12:01.054+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.055+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.055+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 s -- in com.cqr.interviewworkshop.controller.AgentPropertiesControllerTest
+[INFO] Running com.cqr.interviewworkshop.interview.api.InterviewRecordControllerPressureTest
+2026-11-08T00:12:01.135+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.135+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.135+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-08T00:12:01.139+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-7] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.139+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [ool-5-thread-10] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.139+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-6] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.139+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-1] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.139+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-9] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.140+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-3] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.140+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-8] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.140+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-4] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.140+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-5] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-9] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-5] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-1] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-3] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-4] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [ool-5-thread-10] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.142+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-6] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-4] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-7] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [ool-5-thread-10] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-5] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-8] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-9] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+2026-11-08T00:12:01.143+08:00 ERROR 34572 --- [interview-workshop-agent-admin] [pool-5-thread-6] c.c.i.common.web.GlobalExceptionHandler  : [POST] http://localhost/api/interview-workshop/v1/interview/interview/record/save-from-redis/session-record-1 [ex] ClientException{code='A000001',message='finalize is processing, please retry'}
+PRESSURE_REPORT {"scenario":"controller.save-from-redis.concurrent","concurrency":24,"success":1,"failed":23,"successRate":4.167,"latency":{"unit":"ms","count":24,"min":0,"p50":1,"p95":5,"p99":75,"max":75,"avg":4.92},"extra":{"executionSuccess":1,"sessionId":"session-record-1","executionRejected":23}}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s -- in com.cqr.interviewworkshop.interview.api.InterviewRecordControllerPressureTest
+[INFO] Running com.cqr.interviewworkshop.interview.api.InterviewSessionControllerJobMatchRequestTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 s -- in com.cqr.interviewworkshop.interview.api.InterviewSessionControllerJobMatchRequestTest
+[INFO] Running com.cqr.interviewworkshop.interview.api.InterviewSessionControllerPressureTest
+2026-11-08T00:12:01.363+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.363+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.363+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+PRESSURE_REPORT {"scenario":"controller.extract-questions.concurrent","concurrency":24,"success":24,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":24,"min":0,"p50":1,"p95":13,"p99":13,"max":13,"avg":4.13},"extra":{"sessionId":"session-http-2"}}
+2026-11-08T00:12:01.394+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.394+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.395+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+PRESSURE_REPORT {"scenario":"controller.answer-form.concurrent","concurrency":36,"success":36,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":36,"min":0,"p50":1,"p95":33,"p99":36,"max":36,"avg":8.58},"extra":{"sessionId":"session-http-3"}}
+2026-11-08T00:12:01.444+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.445+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.445+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+PRESSURE_REPORT {"scenario":"controller.answer-json.concurrent","concurrency":40,"success":40,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":40,"min":1,"p50":2,"p95":11,"p99":12,"max":12,"avg":3.83},"extra":{"sessionId":"session-http-1"}}
+2026-11-08T00:12:01.478+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.478+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.479+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+PRESSURE_REPORT {"scenario":"controller.current-question-with-answer.concurrent","concurrency":30,"success":30,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":30,"min":0,"p50":1,"p95":9,"p99":11,"max":11,"avg":2.53},"extra":{"currentQuestionOps":15,"sessionId":"session-http-5","answerOps":15}}
+2026-11-08T00:12:01.508+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.508+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.509+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-11-08T00:12:01.531+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-11-08T00:12:01.531+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-08T00:12:01.531+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+PRESSURE_REPORT {"scenario":"controller.finish-end.concurrent","concurrency":20,"success":20,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":20,"min":0,"p50":1,"p95":2,"p99":3,"max":3,"avg":1.1},"extra":{"endCalls":10,"sessionId":"session-http-6","finishCalls":10}}
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 s -- in com.cqr.interviewworkshop.interview.api.InterviewSessionControllerPressureTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.flow.InterviewFlowStateMachineTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s -- in com.cqr.interviewworkshop.interview.application.flow.InterviewFlowStateMachineTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.guard.core.AiCallGuardServiceTest
+2026-11-08T00:12:01.689+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.a.guard.core.AiCallGuardService  : AI guarded call failed, stage=interview-evaluation, requestKey=req-1, code=AI_TIMEOUT, message=AI_TIMEOUT: ai call timed out, please retry
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s -- in com.cqr.interviewworkshop.interview.application.guard.core.AiCallGuardServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.guard.singleflight.cache.FlightResultSerializerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.cqr.interviewworkshop.interview.application.guard.singleflight.cache.FlightResultSerializerTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.guard.singleflight.service.DistributedInterviewAiSingleFlightServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.290 s -- in com.cqr.interviewworkshop.interview.application.guard.singleflight.service.DistributedInterviewAiSingleFlightServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.guard.singleflight.service.InterviewAiSingleFlightServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s -- in com.cqr.interviewworkshop.interview.application.guard.singleflight.service.InterviewAiSingleFlightServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.guard.singleflight.service.LocalSingleFlightBenchmarkTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.942 s -- in com.cqr.interviewworkshop.interview.application.guard.singleflight.service.LocalSingleFlightBenchmarkTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.guard.singleflight.service.RedisFlightCoordinatorBenchmarkTest
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.cqr.interviewworkshop.interview.application.guard.singleflight.service.RedisFlightCoordinatorBenchmarkTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.InterviewQuestionExtractionServiceTest
+2026-11-08T00:12:06.254+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.f.e.InterviewQuestionExtractionService : Resume uploaded successfully, url=https://example.com/resume.pdf
+2026-11-08T00:12:06.254+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.f.e.InterviewQuestionExtractionService : Interview question response saved, sessionId=session-1
+2026-11-08T00:12:06.255+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.f.e.InterviewQuestionExtractionService : Start parsing interview question response, sessionId=session-1, payloadLength=159, payloadHash=7d50f48964c1c25c
+2026-11-08T00:12:06.264+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.f.e.InterviewQuestionExtractionService : Extracted interview content summary, sessionId=session-1, contentLength=87, contentHash=6537a33e832f8fd1
+2026-11-08T00:12:06.264+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.f.e.InterviewQuestionExtractionService : Interview question response fields: [questions, sugest, type, smallTalk, resumeScore]
+2026-11-08T00:12:06.264+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] i.f.e.InterviewQuestionExtractionService : Interview question extraction returned no questions, sessionId=session-1, smallTalk=fallback smalltalk
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s -- in com.cqr.interviewworkshop.interview.application.InterviewQuestionExtractionServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.InterviewResponseParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in com.cqr.interviewworkshop.interview.application.InterviewResponseParserTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.InterviewSessionFacadeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.624 s -- in com.cqr.interviewworkshop.interview.application.InterviewSessionFacadeTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.jobmatch.application.JobMatchServiceTest
+2026-11-08T00:12:07.035+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.a.j.application.JobMatchService  : Workflow request stage=analyze, sessionId=s1, requestId=r1, questionNumber=1, flowId=flow-1, params={"jobTitle":"Java Engineer","jobRequirement":"Spring and Redis","question":"How do you design a cache?","answer":"Use cache-aside.","documents":[],"retrieved_knowledge":"verified tool evidence","AGENT_USER_INPUT":"rendered prompt"}
+2026-11-08T00:12:07.043+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.a.j.application.JobMatchService  : Workflow request stage=analyze, sessionId=s1, requestId=r1, questionNumber=1, flowId=flow-1, params={"jobTitle":"Java Engineer","jobRequirement":"Spring and Redis","question":"How do you design a cache?","answer":"Use cache-aside.","documents":[{"content":"Redis cache-aside reference","source":"knowledge-base"}],"retrieved_knowledge":"���ο�֪ʶ 1�� Redis cache-aside reference ��Դ��knowledge-base","AGENT_USER_INPUT":"rendered prompt"}
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s -- in com.cqr.interviewworkshop.interview.application.jobmatch.application.JobMatchServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.jobmatch.application.JobMatchToolCallingServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in com.cqr.interviewworkshop.interview.application.jobmatch.application.JobMatchToolCallingServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.jobmatch.application.RagBm25BenchmarkTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.500 s -- in com.cqr.interviewworkshop.interview.application.jobmatch.application.RagBm25BenchmarkTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.jobmatch.application.RagCoreTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.714 s -- in com.cqr.interviewworkshop.interview.application.jobmatch.application.RagCoreTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.jobmatch.application.RagIntegrationUnitTest
+2026-11-08T00:12:11.793+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG indexed documentId=recovery, chunks=2
+2026-11-08T00:12:12.466+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG indexed documentId=recovery, chunks=1
+2026-11-08T00:12:12.982+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG indexed documentId=redis, chunks=4
+2026-11-08T00:12:13.451+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG indexed documentId=redis, chunks=1
+2026-11-08T00:12:13.514+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG removed documentId=redis
+2026-11-08T00:12:13.634+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] .i.i.a.j.r.r.i.JobKnowledgeRetrieverImpl : Vector search unavailable
+
+java.lang.IllegalStateException: db down
+	at com.cqr.interviewworkshop.interview.application.jobmatch.rag.retriever.impl.JobKnowledgeRetrieverImpl.retrieve(JobKnowledgeRetrieverImpl.java:43) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.jobmatch.application.RagIntegrationUnitTest.hybridSurvivesVectorFailureAndRerankFailure(RagIntegrationUnitTest.java:175) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+2026-11-08T00:12:13.635+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] .i.i.a.j.r.r.i.JobKnowledgeRetrieverImpl : Rerank failed; using RRF order
+
+java.lang.IllegalStateException: rerank failed
+	at com.cqr.interviewworkshop.interview.application.jobmatch.rag.retriever.impl.JobKnowledgeRetrieverImpl.retrieve(JobKnowledgeRetrieverImpl.java:85) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.jobmatch.application.RagIntegrationUnitTest.hybridSurvivesVectorFailureAndRerankFailure(RagIntegrationUnitTest.java:175) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+2026-11-08T00:12:13.636+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] .i.i.a.j.r.r.i.JobKnowledgeRetrieverImpl : RAG stages ms vector=0, bm25=0, rrf=0, rerank=1, mode=HYBRID_RERANK
+2026-11-08T00:12:13.638+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] .i.i.a.j.r.r.i.JobKnowledgeRetrieverImpl : BM25 search unavailable
+
+java.lang.IllegalStateException: index locked
+	at com.cqr.interviewworkshop.interview.application.jobmatch.rag.LuceneKeywordIndex.search(LuceneKeywordIndex.java:133) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.jobmatch.rag.retriever.impl.JobKnowledgeRetrieverImpl.retrieve(JobKnowledgeRetrieverImpl.java:66) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.jobmatch.application.RagIntegrationUnitTest.hybridFallsBackToVectorWhenKeywordFails(RagIntegrationUnitTest.java:189) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+2026-11-08T00:12:13.639+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] .i.i.a.j.r.r.i.JobKnowledgeRetrieverImpl : RAG stages ms vector=0, bm25=1, rrf=0, rerank=0, mode=HYBRID
+2026-11-08T00:12:14.059+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG indexed documentId=distributed-lock, chunks=1
+2026-11-08T00:12:14.255+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] i.a.j.r.r.PgVectorJobKnowledgeRepository : RAG removed documentId=removed
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.939 s -- in com.cqr.interviewworkshop.interview.application.jobmatch.application.RagIntegrationUnitTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.jobmatch.tool.JobPostingSearchClientTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.323 s -- in com.cqr.interviewworkshop.interview.application.jobmatch.tool.JobPostingSearchClientTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.pipeline.InterviewAnswerIdempotencyServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s -- in com.cqr.interviewworkshop.interview.application.pipeline.InterviewAnswerIdempotencyServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.rule.InterviewFollowUpRuleServiceTest
+2026-11-08T00:12:14.900+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.a.r.InterviewFollowUpRuleService : LiteFlow follow-up decision failed, fallback to legacy policy, sessionId=s-2, chainId=default_followup_chain, questionNumber=null
+
+java.lang.RuntimeException: boom
+	at com.cqr.interviewworkshop.interview.application.rule.InterviewFollowUpRuleService.executeChain(InterviewFollowUpRuleService.java:65) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.rule.InterviewFollowUpRuleService.decide(InterviewFollowUpRuleService.java:42) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.rule.InterviewFollowUpRuleService.decide(InterviewFollowUpRuleService.java:25) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.rule.InterviewFollowUpRuleServiceTest.shouldFallbackWhenLiteFlowThrowsAndFailOpenEnabled(InterviewFollowUpRuleServiceTest.java:66) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 s -- in com.cqr.interviewworkshop.interview.application.rule.InterviewFollowUpRuleServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeIntegrationTest
+[WARNING] Tests run: 10, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0 s -- in com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeIntegrationTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateServiceTest
+2026-11-08T00:12:15.458+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] .InterviewSessionRuntimeRehydrateService : Failed to acquire runtime rehydrate lock after waiting, sessionId=session-1
+2026-11-08T00:12:15.479+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] .InterviewSessionRuntimeRehydrateService : Failed to ensure runtime, sessionId=partial-redis-write
+
+java.lang.IllegalStateException: redis flow write interrupted
+	at com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateService.writeFlow(InterviewSessionRuntimeRehydrateService.java:420) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateService.writeSnapshotToCache(InterviewSessionRuntimeRehydrateService.java:318) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateService.rebuildRuntime(InterviewSessionRuntimeRehydrateService.java:156) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateService.ensureRuntime(InterviewSessionRuntimeRehydrateService.java:102) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateServiceTest.shouldReportFailureWhenRedisWriteBreaksDuringSnapshotRestore(InterviewSessionRuntimeRehydrateServiceTest.java:197) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.569 s -- in com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeRehydrateServiceTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.strategy.AdaptiveDemeanorNormalizationStrategyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.cqr.interviewworkshop.interview.application.strategy.AdaptiveDemeanorNormalizationStrategyTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.strategy.AverageInterviewScoreAggregatorStrategyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.cqr.interviewworkshop.interview.application.strategy.AverageInterviewScoreAggregatorStrategyTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.strategy.WeightedRadarComputationStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in com.cqr.interviewworkshop.interview.application.strategy.WeightedRadarComputationStrategyTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.toolcalling.strategy.NativeToolCallingStrategyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.475 s -- in com.cqr.interviewworkshop.interview.application.toolcalling.strategy.NativeToolCallingStrategyTest
+[INFO] Running com.cqr.interviewworkshop.interview.application.toolcalling.strategy.ToolCallingStrategyResolverTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.cqr.interviewworkshop.interview.application.toolcalling.strategy.ToolCallingStrategyResolverTest
+[INFO] Running com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerParallelBenchmarkTest
+2026-11-08T00:12:16.368+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:16.369+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:16.493+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:16.743+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:16.743+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:16.867+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:17.116+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:17.116+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:17.241+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:17.496+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:17.500+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:17.633+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:17.881+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:17.881+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:18.004+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:18.253+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:18.253+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:18.376+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:18.623+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:18.623+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:18.749+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:19.000+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:19.000+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:19.125+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:19.372+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:19.372+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:19.496+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:19.745+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:19.747+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:19.871+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:20.121+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:20.121+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:20.244+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:20.495+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:20.495+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:20.618+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:20.868+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:20.868+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:20.994+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:21.243+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:21.243+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:21.367+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:21.616+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:21.616+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:21.740+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:21.990+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:21.991+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:22.116+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:22.364+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:22.364+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:22.491+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:22.737+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:22.738+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:22.861+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:23.106+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:23.106+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:23.231+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:23.478+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:23.478+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:23.605+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:23.853+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:23.853+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:23.979+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:24.229+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:24.230+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:24.374+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:24.633+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:24.633+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:24.769+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:25.026+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:25.026+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:25.149+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:25.396+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:25.396+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:25.521+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:25.773+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:25.773+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:25.897+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:26.147+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:26.147+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:26.272+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:26.522+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:26.521+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:26.644+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:26.893+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:26.893+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:27.017+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:27.266+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:27.266+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:27.395+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:27.656+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:27.656+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:27.780+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:28.031+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:28.031+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:28.154+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:28.400+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:28.400+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:28.523+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:28.772+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:28.773+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:28.896+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:29.142+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:29.142+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:29.265+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:29.512+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:29.512+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:29.634+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:29.896+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:29.896+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:30.018+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:30.263+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:30.263+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:30.388+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:30.639+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:30.640+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:30.764+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:31.030+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:31.030+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:31.156+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:31.421+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:31.421+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:31.547+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:31.798+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:31.798+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:31.922+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:32.201+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:32.201+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:32.330+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:32.580+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:32.580+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:32.706+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:32.953+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:32.953+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:33.081+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:33.332+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:33.332+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:33.456+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:33.705+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:33.706+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:33.831+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:34.077+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:34.077+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:34.200+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:34.447+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:34.448+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:34.571+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:34.850+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:34.850+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:34.974+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:35.260+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:35.261+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:35.409+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:35.661+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:35.661+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:35.786+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:36.036+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:36.036+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:36.161+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:36.412+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:36.412+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:36.537+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:36.785+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:36.785+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:36.910+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:37.181+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:37.181+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:37.302+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:37.551+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:37.551+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:37.677+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:37.923+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:37.923+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:38.051+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:38.309+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:38.309+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:38.431+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:38.677+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:38.677+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:38.801+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:39.050+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:39.050+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:39.174+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:39.422+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:39.422+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:39.546+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:39.795+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:39.795+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:39.920+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:40.170+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:40.170+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:40.293+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:40.543+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:40.543+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:40.668+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:40.916+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:40.916+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:41.041+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:41.291+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:41.292+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:41.415+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:41.667+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:41.667+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:41.789+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:42.040+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:42.040+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:42.166+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:42.414+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:42.415+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:42.540+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:42.787+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:42.788+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:42.911+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:43.158+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:43.160+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:43.282+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:43.546+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:43.546+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:43.670+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:43.918+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:43.918+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:44.044+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:44.324+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:44.324+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:44.449+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:44.700+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:44.700+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:44.862+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:45.121+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:45.121+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:45.245+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:45.496+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:45.496+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:45.623+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:45.870+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:45.870+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:45.995+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:46.244+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:46.245+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:46.369+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:46.617+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:46.617+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:46.741+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:46.990+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:46.990+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:47.114+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:47.364+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:47.364+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:47.490+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:47.741+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:47.743+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:47.867+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:48.116+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:48.117+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:48.239+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:48.488+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:48.488+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:48.614+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:48.865+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:48.865+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:48.990+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:49.238+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:49.238+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:49.364+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:49.612+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:49.612+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:49.736+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:49.984+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:49.984+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:50.112+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:50.359+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:50.359+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:50.485+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:50.736+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:50.737+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:50.858+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:51.109+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:51.110+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:51.235+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:51.487+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:51.487+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:51.613+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:51.860+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:51.860+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:51.986+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:52.237+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:52.237+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:52.362+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:52.612+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:52.612+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:52.738+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:52.988+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:52.988+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:53.113+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:53.366+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:53.366+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:53.487+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:53.734+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:12:53.734+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-77-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:53.858+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:12:53.861+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-78-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:12:53.862+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-78-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:13:23.872+08:00  WARN 34572 --- [interview-workshop-agent-admin] [eDelayScheduler] c.c.i.i.f.a.InterviewAnswerPipeline      : job match agent failed
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.CompletableFuture$Timeout.run(CompletableFuture.java:2874) ~[na:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-11-08T00:13:23.872+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:13:23.879+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-79-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:13:23.880+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-79-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+2026-11-08T00:13:23.882+08:00  WARN 34572 --- [interview-workshop-agent-admin] [ool-79-thread-2] c.c.i.i.f.a.InterviewAnswerPipeline      : job match agent failed
+
+java.util.concurrent.CompletionException: java.lang.IllegalStateException: job match unavailable
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1770) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.lang.IllegalStateException: job match unavailable
+	at com.cqr.interviewworkshop.interview.application.jobmatch.application.JobMatchService.analyze(JobMatchService.java:49) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline.executeJobMatchAgent(InterviewAnswerPipeline.java:420) ~[classes/:na]
+	at com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerPipeline.lambda$stepEvaluateAndScore$1(InterviewAnswerPipeline.java:335) ~[classes/:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[na:na]
+	... 3 common frames omitted
+
+2026-11-08T00:13:23.883+08:00  WARN 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.a.InterviewAnswerPipeline      : job match unavailable, continue with evaluation result, sessionId=benchmark-session
+2026-11-08T00:13:23.883+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-79-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start evaluation agent, question=1
+2026-11-08T00:13:23.884+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-79-thread-1] c.c.i.i.f.a.InterviewAnswerPipeline      : start job match agent, question=1
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 67.90 s -- in com.cqr.interviewworkshop.interview.flow.answer.InterviewAnswerParallelBenchmarkTest
+[INFO] Running com.cqr.interviewworkshop.interview.flow.report.InterviewRecordFinalizeConcurrencyTest
+2026-11-08T00:13:24.289+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-80-thread-1] c.c.i.i.f.r.InterviewRecordServiceImpl   : Created interview record, userId=3003, sessionId=session-finalize-1
+2026-11-08T00:13:24.289+08:00  INFO 34572 --- [interview-workshop-agent-admin] [ool-80-thread-1] c.c.i.i.f.r.InterviewRecordServiceImpl   : Saved interview record from redis, sessionId=session-finalize-1, userId=3003, attempt=1
+PRESSURE_REPORT {"scenario":"record.finalize.concurrent-single-writer","concurrency":24,"success":1,"failed":23,"successRate":4.167,"latency":{"unit":"ms","count":24,"min":0,"p50":0,"p95":2,"p99":206,"max":206,"avg":8.83},"extra":{"sessionId":"session-finalize-1"}}
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.401 s -- in com.cqr.interviewworkshop.interview.flow.report.InterviewRecordFinalizeConcurrencyTest
+[INFO] Running com.cqr.interviewworkshop.interview.flow.session.InterviewSessionFacadeConsistencyTest
+PRESSURE_REPORT {"scenario":"facade.get-score.concurrent-cache-miss-fallback","concurrency":24,"success":24,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":24,"min":0,"p50":0,"p95":3,"p99":4,"max":4,"avg":0.46},"extra":{"expectedScore":81,"sessionId":"session-consistency-4"}}
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s -- in com.cqr.interviewworkshop.interview.flow.session.InterviewSessionFacadeConsistencyTest
+[INFO] Running com.cqr.interviewworkshop.interview.flow.session.InterviewSessionFacadePressureTest
+PRESSURE_REPORT {"scenario":"facade.answer.concurrent-mock-workflow","concurrency":48,"success":48,"failed":0,"successRate":100.0,"latency":{"unit":"ms","count":48,"min":0,"p50":0,"p95":1,"p99":2,"max":2,"avg":0.13},"extra":{"sessionId":"session-pressure-1"}}
+PRESSURE_REPORT {"scenario":"facade.extraction.concurrent-ready-draft-transition","concurrency":40,"success":20,"failed":20,"successRate":50.0,"latency":{"unit":"ms","count":40,"min":0,"p50":0,"p95":2,"p99":2,"max":2,"avg":0.3},"extra":{"sessionId":"session-pressure-2"}}
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in com.cqr.interviewworkshop.interview.flow.session.InterviewSessionFacadePressureTest
+[INFO] Running com.cqr.interviewworkshop.interview.service.impl.InterviewRecordServiceImplTest
+2026-11-08T00:13:24.450+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.r.InterviewRecordServiceImpl   : Created interview record, userId=1001, sessionId=interview-session-1
+2026-11-08T00:13:24.452+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.r.InterviewRecordServiceImpl   : Updated interview record, userId=1001, sessionId=interview-session-1
+2026-11-08T00:13:24.452+08:00  INFO 34572 --- [interview-workshop-agent-admin] [           main] c.c.i.i.f.r.InterviewRecordServiceImpl   : Saved interview record from redis, sessionId=interview-session-1, userId=1001, attempt=1
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.cqr.interviewworkshop.interview.service.impl.InterviewRecordServiceImplTest
+[INFO] Running com.cqr.interviewworkshop.interview.shared.InterviewJsonValueNormalizerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.cqr.interviewworkshop.interview.shared.InterviewJsonValueNormalizerTest
+[INFO] Running com.cqr.interviewworkshop.media.infrastructure.integration.XunfeiAudioServiceAssemblerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s -- in com.cqr.interviewworkshop.media.infrastructure.integration.XunfeiAudioServiceAssemblerTest
+[INFO] Running com.cqr.interviewworkshop.media.infrastructure.websocket.AudioTranscriptionWebSocketHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s -- in com.cqr.interviewworkshop.media.infrastructure.websocket.AudioTranscriptionWebSocketHandlerTest
+[INFO] Running com.cqr.interviewworkshop.streamingMedia.service.XunfeiAudioServiceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.cqr.interviewworkshop.streamingMedia.service.XunfeiAudioServiceTest
+[INFO] Running com.cqr.interviewworkshop.streamingMedia.service.XunfeiLongTextTtsServiceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in com.cqr.interviewworkshop.streamingMedia.service.XunfeiLongTextTtsServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 139, Failures: 0, Errors: 0, Skipped: 10
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for interview-workshop 1.0-SNAPSHOT:
+[INFO] 
+[INFO] interview-workshop ................................. SUCCESS [  0.982 s]
+[INFO] interview-workshop-admin ........................... SUCCESS [02:35 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:37 min
+[INFO] Finished at: 2026-11-08T00:13:27+08:00
+[INFO] ------------------------------------------------------------------------

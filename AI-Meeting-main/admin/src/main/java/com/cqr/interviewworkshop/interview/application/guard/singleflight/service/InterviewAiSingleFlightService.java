@@ -35,6 +35,7 @@ public class InterviewAiSingleFlightService {
     public <T> T execute(String key, Supplier<T> supplier) {
         Objects.requireNonNull(supplier, "supplier cannot be null");
         if (!Boolean.TRUE.equals(configuration.getEnable()) || StrUtil.isBlank(key)) {
+            // 未开启本地去重，直接调用方法
             meterRegistry.counter("ai_singleflight_miss_total").increment();
             return supplier.get();
         }
@@ -42,6 +43,7 @@ public class InterviewAiSingleFlightService {
         long now = System.currentTimeMillis();
         long ttlMillis = resolveTtlMillis();
         AtomicBoolean newFlight = new AtomicBoolean(false);
+
         // compute 保证同 key 下“创建 flight + 复用 flight”原子化，避免瞬时并发下出现多个 leader。
         FlightEntry entry = flights.compute(key, (ignored, existing) -> {
             if (existing == null || existing.expireAtMillis <= now) {
@@ -51,6 +53,7 @@ public class InterviewAiSingleFlightService {
             return existing;
         });
 
+        // owner执行操作
         if (newFlight.get()) {
             meterRegistry.counter("ai_singleflight_miss_total").increment();
             try {

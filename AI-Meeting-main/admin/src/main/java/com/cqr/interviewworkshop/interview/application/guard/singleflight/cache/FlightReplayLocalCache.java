@@ -15,17 +15,21 @@ import java.util.Map;
 @Component
 public class FlightReplayLocalCache {
 
-    private final Map<String, CacheEntry> cache = new LinkedHashMap<>(128, 0.75F, true) {
-        @Override
-        protected boolean removeEldestEntry(Map.Entry<String, CacheEntry> eldest) {
-            return size() > maxSize;
-        }
-    };
+    private final Map<String, CacheEntry> cache;
+    private volatile int maxSize;
 
-    private volatile int maxSize = 1000;
+    public FlightReplayLocalCache(InterviewAiSingleFlightConfiguration configuration) {
+        Integer configuredMaxSize = configuration.getL1CacheMaxSize();
+        this.maxSize = configuredMaxSize != null && configuredMaxSize > 0
+                ? configuredMaxSize
+                : 1000;
 
-    public synchronized void refreshMaxSize(Integer configuredMaxSize) {
-        this.maxSize = configuredMaxSize != null && configuredMaxSize > 0 ? configuredMaxSize : 1000;
+        this.cache = new LinkedHashMap<>(128, 0.75F, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<String, CacheEntry> eldest) {
+                return size() > FlightReplayLocalCache.this.maxSize;
+            }
+        };
     }
 
     public synchronized String get(String stage, String requestKey) {

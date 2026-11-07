@@ -64,7 +64,6 @@ public class InterviewDemeanorService {
 
             String imageUrl = null;
 
-            // Upload image first and get a workflow-readable URL.
             if (reqDTO.getUserPhoto() != null && !reqDTO.getUserPhoto().isEmpty()) {
                 try {
                     // 2) 上传照片，拿到 AI workflow 可访问的文件 URL。

@@ -68,9 +68,11 @@ public class InterviewSessionRuntimeSnapshotService {
         if (session == null || StrUtil.isBlank(session.getSessionId())) {
             return;
         }
+
         try {
             InterviewSessionRuntimeHotSnapshot hotSnapshot = findHotSnapshot(session.getSessionId()).orElse(null);
             InterviewSessionRuntimeColdSnapshot coldSnapshot = findColdSnapshot(session.getSessionId()).orElse(null);
+
             Date now = new Date();
             hotSnapshotRepository.applyPatch(session.getSessionId(), InterviewSessionRuntimeHotPatch.builder()
                     .userId(session.getUserId())
@@ -152,6 +154,8 @@ public class InterviewSessionRuntimeSnapshotService {
         if (StrUtil.isBlank(sessionId)) {
             return new ArrayList<>();
         }
+
+        // 首先尝试从 mongodb 的 问答文档 中查询
         List<InterviewSessionTurnArchive> archives = loadTurnArchives(sessionId);
         if (archives != null && !archives.isEmpty()) {
             return archives.stream()
@@ -159,10 +163,14 @@ public class InterviewSessionRuntimeSnapshotService {
                     .filter(item -> item != null)
                     .collect(Collectors.toCollection(ArrayList::new));
         }
+
+        // 其次尝试从 redis 的 turns 中查询
         List<InterviewTurnLog> cacheTurns = interviewQuestionCacheService.getInterviewTurns(sessionId);
         if (cacheTurns != null && !cacheTurns.isEmpty()) {
             return cacheTurns;
         }
+
+        // 最后尝试从 mongodb 的 snapshot 中查询
         return findSnapshot(sessionId)
                 .map(InterviewSessionRuntimeSnapshot::getRecentTurns)
                 .map(ArrayList::new)

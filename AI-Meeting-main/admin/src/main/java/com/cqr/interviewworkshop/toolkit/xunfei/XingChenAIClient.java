@@ -126,19 +126,20 @@ public class XingChenAIClient {
     public String uploadFile(MultipartFile file, String apiKey, String apiSecret) throws Exception {
         URL url = new URL("https://xingchen-api.xf-yun.com/workflow/v1/upload_file");
         HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-
+        // 请求行
         conn.setRequestMethod("POST");
         conn.setDoOutput(true);
         conn.setDoInput(true);
+        // 请求头
         conn.setRequestProperty("Host", "xingchen-api.xf-yun.com");
         conn.setRequestProperty("Authorization", "Bearer " + apiKey + ":" + apiSecret);
-
         String boundary = "----WebKitFormBoundary" + System.currentTimeMillis();
         conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
 
         try (OutputStream outputStream = conn.getOutputStream();
-             PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8), true)) {
-
+             PrintWriter writer = new PrintWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8), true)
+        ) {
+            // 请求体
             writer.append("--").append(boundary).append("\r\n");
             String contentType = getContentTypeByFileName(file.getOriginalFilename());
             writer.append("Content-Disposition: form-data; name=\"file\"; filename=\"")
@@ -150,6 +151,7 @@ public class XingChenAIClient {
             writer.append("\r\n");
             writer.flush();
 
+            // 从用户上传的 MultipartFile 中读取 PDF 的二进制数据，然后分批写入 HTTP 请求输出流
             try (InputStream inputStream = file.getInputStream()) {
                 byte[] buffer = new byte[4096];
                 int bytesRead;
@@ -255,6 +257,7 @@ public class XingChenAIClient {
         if (stream == null) {
             return "";
         }
+
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
             StringBuilder response = new StringBuilder();
             String line;

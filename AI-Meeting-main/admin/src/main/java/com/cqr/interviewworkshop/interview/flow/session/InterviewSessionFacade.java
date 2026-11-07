@@ -89,7 +89,7 @@ public class InterviewSessionFacade {
             MultipartFile resumePdf,
             Long userId,
             String username) {
-        // 1) 进入提取前先把会话打到“上传中”，避免并发接口误判状态。
+        // 1) 进入提取前先把会话打到“上传中”。
         interviewSessionService.markResumeUploading(sessionId, userId);
 
         // 2) 组装提取请求并委托 workflow（内部会做上传、AI 调用、结构化落库）。
@@ -97,21 +97,33 @@ public class InterviewSessionFacade {
         reqDTO.setUserName(username);
         reqDTO.setSessionId(sessionId);
         reqDTO.setResumePdf(resumePdf);
-
-        InterviewQuestionRespDTO response = interviewWorkflowService.extractInterviewQuestions(reqDTO);
+        InterviewQuestionRespDTO response;
+        try{
+            // 3) 执行简历提取工作流
+            response = interviewWorkflowService.extractInterviewQuestions(reqDTO);
+        }catch (RuntimeException ex){
+            try{
+                //  AI调用失败回落到 DRAFT。
+                interviewSessionService.markDraft(sessionId, userId);
+            }catch (RuntimeException rollbackEx){
+                ex.addSuppressed(rollbackEx);
+                log.warn("Failed to rollback resume uploading state, sessionId={}", sessionId, rollbackEx);
+            }
+            throw ex;
+        }
+        // 5) 提取成功
         if (response != null && Integer.valueOf(1).equals(response.getIsSuccess())) {
-            // 3) 提取成功后推进到 READY，并同步会话级简历地址与面试方向。
             interviewSessionService.markReady(
                     sessionId,
                     userId,
                     response.getResumeFileUrl(),
                     response.getInterviewType()
             );
+            // 6) 刷新运行态快照
             runtimeSnapshotService.refreshAfterQuestionExtraction(sessionId);
             return response;
         }
 
-        // 3) 提取失败回落到 DRAFT，保留后续重试入口。
         interviewSessionService.markDraft(sessionId, userId);
         return response;
     }

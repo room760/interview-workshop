@@ -46,12 +46,14 @@ public class DistributedInterviewAiSingleFlightService {
     private final FlightReplayLocalCache flightReplayLocalCache;
 
     public String execute(String stage, String requestKey, Supplier<String> supplier) {
-        flightReplayLocalCache.refreshMaxSize(configuration.getL1CacheMaxSize());
         FlightMode mode = FlightMode.from(configuration.normalizedMode());
+
         if (!Boolean.TRUE.equals(configuration.getEnable()) || mode == FlightMode.LOCAL || !Boolean.TRUE.equals(configuration.getDistributedEnabled())) {
+            // 本地执行
             return localSingleFlightService.execute(requestKey, supplier);
         }
         try {
+            // 分布式执行
             return executeDistributed(stage, requestKey, supplier);
         } catch (RuntimeException ex) {
             if (mode == FlightMode.HYBRID) {
@@ -66,6 +68,7 @@ public class DistributedInterviewAiSingleFlightService {
         String safeStage = StrUtil.blankToDefault(stage, "interview-default");
         String safeRequestKey = StrUtil.blankToDefault(requestKey, safeStage + "|no-key");
         InterviewAiSingleFlightConfiguration.StageFlightPolicy policy = configuration.resolveStagePolicy(safeStage);
+        // 首先尝试从本地缓存获取(L1缓存)
         String localReplay = flightReplayLocalCache.get(safeStage, safeRequestKey);
         if (localReplay != null) {
             return localReplay;
@@ -75,6 +78,7 @@ public class DistributedInterviewAiSingleFlightService {
         int attempts = 0;
         while (attempts < 3) {
             attempts++;
+            // 通过redis判断对应会话状态从而返回路径关键词
             FlightAcquireResult acquireResult = flightCoordinatorRepository.acquireOrJoin(
                     safeStage,
                     safeRequestKey,
@@ -85,6 +89,7 @@ public class DistributedInterviewAiSingleFlightService {
             if (acquireResult == null || acquireResult.getAction() == null) {
                 return localSingleFlightService.execute(safeRequestKey, supplier);
             }
+
             switch (acquireResult.getAction()) {
                 case OWNER_NEW, OWNER_TAKEOVER -> {
                     return ownerExecute(safeStage, safeRequestKey, acquireResult.getOwnerToken(), supplier, policy);
@@ -114,11 +119,14 @@ public class DistributedInterviewAiSingleFlightService {
                                 Supplier<String> supplier,
                                 InterviewAiSingleFlightConfiguration.StageFlightPolicy policy) {
         long runningTtlMillis = positive(policy.getRunningTtlMillis(), 15000L);
+
+        // 标记任务为running
         boolean markedRunning = flightCoordinatorRepository.markRunning(requestKey, nodeId(), ownerToken, runningTtlMillis);
         if (!markedRunning) {
             return followerWait(stage, requestKey, policy, System.currentTimeMillis() + resolveFollowerMaxWaitMillis());
         }
 
+        // 启动心跳
         FlightOwnerContext ownerContext = FlightOwnerContext.builder()
                 .stage(stage)
                 .requestKey(requestKey)
@@ -131,12 +139,16 @@ public class DistributedInterviewAiSingleFlightService {
                 () -> flightCoordinatorRepository.heartbeat(requestKey, nodeId(), ownerToken, runningTtlMillis)
         );
         try {
+            // 执行调用操作
             String result = supplier.get();
+            // 处理模型传回来的string结果
             FlightStoredResult storedResult = flightResultSerializer.serialize(result, ownerToken, policy);
+            // redis缓存数据
             long resultTtlMillis = positive(policy.getResultTtlMillis(), 600000L);
             if (!flightCoordinatorRepository.storeResult(requestKey, nodeId(), ownerToken, storedResult, resultTtlMillis)) {
                 throw new IllegalStateException("failed to store distributed flight result");
             }
+            // 标记任务为success
             if (!flightCoordinatorRepository.finishSuccess(requestKey, nodeId(), ownerToken, resultTtlMillis)) {
                 String replay = tryReadSuccessReplay(stage, requestKey, policy);
                 if (replay != null) {
@@ -144,6 +156,8 @@ public class DistributedInterviewAiSingleFlightService {
                 }
                 throw new IllegalStateException("failed to finish distributed flight success state");
             }
+
+            // 通知等待着，本地缓存
             flightNotificationService.publish(requestKey, "owner_succeeded", FlightStatus.SUCCEEDED, ownerToken, null, false);
             flightReplayLocalCache.put(stage, requestKey, result, policy);
             return result;
@@ -168,14 +182,19 @@ public class DistributedInterviewAiSingleFlightService {
     private String followerWait(String stage, String requestKey,
                                 InterviewAiSingleFlightConfiguration.StageFlightPolicy policy,
                                 long deadlineMillis) {
+        // 一次 Redis Stream 阻塞读取最多等多久
         long streamBlockTimeoutMillis = positive(configuration.getStreamBlockTimeoutMillis(), 3000L);
+        // 两次主动轮询 Redis 结果之间计划间隔多久
         long pollIntervalMillis = positive(configuration.getPollFallbackIntervalMillis(), 2000L);
+        // 下一次允许执行主动轮询的时间点
         long nextPollAt = System.currentTimeMillis();
+
         while (System.currentTimeMillis() < deadlineMillis) {
             String replay = tryReadSuccessReplay(stage, requestKey, policy);
             if (replay != null) {
                 return replay;
             }
+
             FlightMetaSnapshot metaSnapshot = flightCoordinatorRepository.getMeta(requestKey);
             if (metaSnapshot != null && metaSnapshot.getStatus() == FlightStatus.FAILED && !Boolean.TRUE.equals(metaSnapshot.getRetryable())) {
                 throw new IllegalStateException("distributed single-flight previous failure: "
@@ -185,6 +204,7 @@ public class DistributedInterviewAiSingleFlightService {
             if (remainingMillis <= 0) {
                 return null;
             }
+
             flightNotificationService.waitForTerminalEvent(requestKey, Math.min(streamBlockTimeoutMillis, remainingMillis));
             if (System.currentTimeMillis() >= nextPollAt) {
                 String polledReplay = tryReadSuccessReplay(stage, requestKey, policy);
@@ -203,6 +223,7 @@ public class DistributedInterviewAiSingleFlightService {
         if (localReplay != null) {
             return localReplay;
         }
+        // 查询redis里面的任务状态
         FlightMetaSnapshot metaSnapshot = flightCoordinatorRepository.getMeta(requestKey);
         if (metaSnapshot == null || metaSnapshot.getStatus() != FlightStatus.SUCCEEDED) {
             return null;
@@ -217,11 +238,12 @@ public class DistributedInterviewAiSingleFlightService {
     }
 
     private RuntimeException replayFailure(FlightAcquireResult acquireResult) {
-        boolean retryable = Boolean.TRUE.equals(acquireResult.getRetryable());
         String message = "distributed single-flight replay failure";
         if (StrUtil.isNotBlank(acquireResult.getErrorCode())) {
             message = message + ": " + acquireResult.getErrorCode();
         }
+
+        boolean retryable = Boolean.TRUE.equals(acquireResult.getRetryable());
         if (retryable) {
             return new CompletionException(new RejectedExecutionException(message));
         }

@@ -137,8 +137,8 @@ public class InterviewQuestionServiceImpl implements InterviewQuestionService {
             Integer responseTime,
             Integer tokenCount) {
         try {
+            // 标准化参数
             InterviewQuestion question = buildQuestionForUpsert(reqDTO, responseTime, tokenCount, aiResponseData);
-
             Map<String, Object> payload = parseStructuredPayload(aiResponseData);
             List<String> questions = toStringList(payload.get("questions"));
             List<String> suggestions = toStringList(firstNonNull(payload.get("sugest"), payload.get("suggestions")));

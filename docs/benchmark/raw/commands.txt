@@ -1,0 +1,22 @@
+2026-11-06 Asia/Shanghai; run from D:\AI-Meeting-main\AI-Meeting-main
+JAVA_HOME=E:\Java\jdk-17; Maven=E:\Java\maven\apache-maven-3.8.9\bin\mvn.cmd; offline mode (-o)
+
+BM25:
+mvn -o -pl admin -am '-Dtest=RagBm25BenchmarkTest' '-Dsurefire.failIfNoSpecifiedTests=false' test
+
+Local Single-flight:
+mvn -o -pl admin -am '-Dtest=LocalSingleFlightBenchmarkTest' '-Dsurefire.failIfNoSpecifiedTests=false' test
+
+Real Redis 6.2.6 on 127.0.0.1:16379:
+mvn -o -pl admin -am '-Dtest=RedisFlightCoordinatorBenchmarkTest' '-Dbenchmark.redis=true' '-Dbenchmark.redis.port=16379' '-Dsurefire.failIfNoSpecifiedTests=false' test
+
+Recovery:
+mvn -o -pl admin -am '-Dtest=InterviewSessionRuntimeRehydrateServiceTest' '-Dsurefire.failIfNoSpecifiedTests=false' test
+
+Multi-Agent production branch (includes a 30-second timeout case):
+mvn -o -pl admin -am '-Dtest=InterviewAnswerParallelBenchmarkTest' '-Dsurefire.failIfNoSpecifiedTests=false' test
+
+Final focused suite (37 JUnit tests):
+mvn -o -pl admin -am '-Dtest=RagBm25BenchmarkTest,LocalSingleFlightBenchmarkTest,RedisFlightCoordinatorBenchmarkTest,InterviewAnswerParallelBenchmarkTest,InterviewAiSingleFlightServiceTest,DistributedInterviewAiSingleFlightServiceTest,InterviewSessionRuntimeRehydrateServiceTest,RagCoreTest,RagIntegrationUnitTest,InterviewSessionFacadePressureTest,JobMatchServiceTest,JobMatchToolCallingServiceTest' '-Dbenchmark.redis=true' '-Dbenchmark.redis.port=16379' '-Dsurefire.failIfNoSpecifiedTests=false' test
+
+Real embedding/PgVector evaluation was not run; no paid model endpoint was called.

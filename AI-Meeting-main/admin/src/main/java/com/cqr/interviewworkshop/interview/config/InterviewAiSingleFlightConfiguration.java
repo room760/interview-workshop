@@ -45,10 +45,12 @@ public class InterviewAiSingleFlightConfiguration {
     private Map<String, StageFlightPolicy> stagePolicies = new LinkedHashMap<>();
 
     public StageFlightPolicy resolveStagePolicy(String stage) {
+        // 创建默认配置
         StageFlightPolicy fallback = new StageFlightPolicy();
         if (stage == null || stage.isBlank()) {
             return fallback;
         }
+
         StageFlightPolicy policy = stagePolicies.get(stage);
         if (policy == null) {
             return fallback;

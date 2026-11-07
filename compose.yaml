@@ -5,6 +5,11 @@ include:
     env_file: ./config/.env
 
 services:
+  backend:
+    environment:
+      RAG_EVALUATION_FILE: ${RAG_EVALUATION_FILE:-}
+    volumes:
+      - ./docs/benchmark/data/candidate120.json:/app/benchmark/candidate120.json:ro
   frontend:
     image: interview-workshop-frontend:latest
     build:

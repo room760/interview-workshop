@@ -12,17 +12,21 @@
 
 脚本会自动创建缺失的 `config/.env`、启动 MySQL、MongoDB、Redis 和 pgvector、载入 `config/ai-credentials.sql`（如果存在），然后构建并启动后端与前端。首次运行需要下载镜像和依赖，时间会较长。启动完成后浏览器打开 `http://localhost:8080/`，后端健康检查为 `http://localhost:8002/actuator/health`。
 
-关闭服务时，在项目最外层运行：
+关闭启动窗口不会停止后台容器。要关闭项目，在最外层**双击 `stop.cmd`**；也可以在 PowerShell 运行：
 
 ```powershell
-docker compose -f compose.yaml down
+.\stop.ps1
 ```
 
-`down` 不删除数据库数据卷。再次启动仍使用 `start.cmd`。
+`stop.cmd` 停止前端、后端和数据库容器，保留容器与数据库数据卷。再次启动仍使用 `start.cmd`。
 
 ## RAG 一键评测
 
 填写好讯飞 Embedding 配置后，启动 Docker Desktop 并双击 `eval-rag.cmd`。脚本会运行真实的岗位知识检索评测、保存指标，并恢复日常服务配置。操作和指标说明见 [配置指南](config/README.md)。
+
+## 四项评测与已知问题
+
+仓库提供 `benchmark-1-rag.cmd` 至 `benchmark-4-recovery.cmd` 四个单独的评测入口。结果、样本来源与原始数据见[一页汇总](docs/benchmark/latest_summary.md)和[运行说明](docs/benchmark/README.md)。长会话恢复的真实 Redis + MongoDB 集成测试目前 **9/10 通过**；失败项表明终态会话第二次命中缓存时错误获得写权限，详见[完整报告](docs/benchmark/recovery-integration-report.md)。
 
 ## AI 密钥与演示
 
@@ -38,6 +42,6 @@ docker compose -f compose.yaml down
 | `AI-Meeting-main/docker-compose.yml` | 后端与依赖服务 |
 | `AI-Meeting-Frontend-main/src/` | 演示页面和接口调用 |
 | `config/` | 环境变量、AI 凭据模板与填写指南 |
-| `compose.yaml`、`start.cmd`、`start.ps1` | 整体启动入口 |
+| `compose.yaml`、`start.cmd`、`start.ps1`、`stop.cmd`、`stop.ps1` | 整体启动与关闭入口 |
 
 本机产生的 `tmp/`、`.idea/`、`node_modules/`、`dist/`、`target/` 等目录已由 [.gitignore](.gitignore) 排除。后端开发细节见 [后端 README](AI-Meeting-main/README.md)。

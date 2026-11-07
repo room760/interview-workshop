@@ -25,6 +25,7 @@ public class InterviewAiSessionLockService {
         if (StrUtil.isBlank(sessionId) || StrUtil.isBlank(stage)) {
             return null;
         }
+
         RLock lock = redissonClient.getLock(LOCK_KEY_PREFIX + stage + ":" + sessionId);
         boolean acquired = lock.tryLock(
                 resolveWaitMillis(),

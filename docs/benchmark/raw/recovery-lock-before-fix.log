@@ -1,0 +1,107 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] interview-workshop                                                 [pom]
+[INFO] interview-workshop-admin                                           [jar]
+[INFO] 
+[INFO] ---------------------< com.cqr:interview-workshop >---------------------
+[INFO] Building interview-workshop 1.0-SNAPSHOT                           [1/2]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-build-baseline) @ interview-workshop ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] ------------------< com.cqr:interview-workshop-admin >------------------
+[INFO] Building interview-workshop-admin 1.0-SNAPSHOT                     [2/2]
+[INFO]   from admin\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-build-baseline) @ interview-workshop-admin ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ interview-workshop-admin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 23 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ interview-workshop-admin ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 394 source files with javac [debug target 17] to target\classes
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/common/web/GlobalExceptionHandler.java: ĳЩ�����ļ�ʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/common/web/GlobalExceptionHandler.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/coordinator/FlightNotificationService.java: D:\AI-Meeting-main\AI-Meeting-main\admin\src\main\java\com\cqr\interviewworkshop\interview\application\guard\singleflight\coordinator\FlightNotificationService.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/main/java/com/cqr/interviewworkshop/interview/application/guard/singleflight/coordinator/FlightNotificationService.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ interview-workshop-admin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\AI-Meeting-main\AI-Meeting-main\admin\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:testCompile (default-testCompile) @ interview-workshop-admin ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 50 source files with javac [debug target 17] to target\test-classes
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/common/ratelimit/RedissonRequestRateLimitServiceTest.java: D:\AI-Meeting-main\AI-Meeting-main\admin\src\test\java\com\cqr\interviewworkshop\common\ratelimit\RedissonRequestRateLimitServiceTest.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/common/ratelimit/RedissonRequestRateLimitServiceTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/session/InterviewSessionFacadeConsistencyTest.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /D:/AI-Meeting-main/AI-Meeting-main/admin/src/test/java/com/cqr/interviewworkshop/interview/flow/session/InterviewSessionFacadeConsistencyTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ interview-workshop-admin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeIntegrationTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+23:55:19.004 [main] INFO org.redisson.Version -- Redisson 3.21.0
+23:55:19.105 [redisson-netty-5-4] INFO org.redisson.connection.pool.MasterPubSubConnectionPool -- 1 connections initialized for 127.0.0.1/127.0.0.1:6379
+23:55:19.179 [redisson-netty-5-19] INFO org.redisson.connection.pool.MasterConnectionPool -- 24 connections initialized for 127.0.0.1/127.0.0.1:6379
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2026-11-07T23:55:19.632+08:00  WARN 38640 --- [interview-workshop-agent-admin] [           main] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/E:/Java/mavenJar/org/json/json/20240303/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/E:/Java/mavenJar/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-11-07T23:55:19.662+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] r.InterviewSessionRuntimeIntegrationTest : Starting InterviewSessionRuntimeIntegrationTest using Java 17.0.16 with PID 38640 (started by cqr37 in D:\AI-Meeting-main\AI-Meeting-main\admin)
+2026-11-07T23:55:19.664+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] r.InterviewSessionRuntimeIntegrationTest : The following 2 profiles are active: "satoken", "sse"
+2026-11-07T23:55:19.886+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-07T23:55:19.886+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-11-07T23:55:20.233+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 340 ms. Found 5 MongoDB repository interfaces.
+2026-11-07T23:55:20.486+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.2.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/17.0.16+12-LTS-247"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@7dd7ec56, com.mongodb.Jep395RecordCodecProvider@6528d339, com.mongodb.KotlinCodecProvider@2dd2ff87]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2026-11-07T23:55:20.511+08:00  INFO 38640 --- [interview-workshop-agent-admin] [127.0.0.1:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23720900, minRoundTripTimeNanos=0}
+2026-11-07T23:55:21.080+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] r.InterviewSessionRuntimeIntegrationTest : Started InterviewSessionRuntimeIntegrationTest in 1.83 seconds (process running for 4.206)
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-11-07T23:55:21.909+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] i.a.r.InterviewSessionRuntimeLockService : Runtime rehydrate lock phase sessionId=benchmark-recovery-lock-contention requestedWaitMillis=0 actualWaitMs=2 acquired=false
+2026-11-07T23:55:22.263+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] .InterviewSessionRuntimeRehydrateService : Runtime rehydrate follower phase sessionId=benchmark-recovery-lock-contention elapsedMs=353
+2026-11-07T23:56:42.276+08:00  INFO 38640 --- [interview-workshop-agent-admin] [           main] i.a.r.InterviewSessionRuntimeLockService : Runtime rehydrate lock phase sessionId=benchmark-recovery-lock-contention requestedWaitMillis=80 actualWaitMs=80013 acquired=false
+2026-11-07T23:56:42.278+08:00  WARN 38640 --- [interview-workshop-agent-admin] [           main] .InterviewSessionRuntimeRehydrateService : Failed to acquire runtime rehydrate lock after waiting, sessionId=benchmark-recovery-lock-contention
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 84.80 s -- in com.cqr.interviewworkshop.interview.application.runtime.InterviewSessionRuntimeIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for interview-workshop 1.0-SNAPSHOT:
+[INFO] 
+[INFO] interview-workshop ................................. SUCCESS [  0.888 s]
+[INFO] interview-workshop-admin ........................... SUCCESS [02:12 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:15 min
+[INFO] Finished at: 2026-11-07T23:56:43+08:00
+[INFO] ------------------------------------------------------------------------
